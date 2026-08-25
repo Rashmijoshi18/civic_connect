@@ -293,4 +293,3 @@ npm run dev
 
 ---
 
-*Built for Smart India Hackathon 2024 • Made with ❤️ in India*
