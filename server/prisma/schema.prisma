@@ -1,0 +1,124 @@
+// This is your Prisma schema file
+// Learn more about it at: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Removed Enums for SQLite compatibility
+
+// ─── Models ──────────────────────────────────────────────────────────────────
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("USER")
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  reportedProblems     Problem[]             @relation("Reporter")
+  solutions            Solution[]            @relation("Contributor")
+  votes                SolutionVote[]
+  statusChanges        ProblemStatusHistory[]
+
+  @@index([email])
+  @@index([role])
+}
+
+model Problem {
+  id             String        @id @default(cuid())
+  title          String
+  description    String
+  category       String
+  location       String
+  city           String
+  imageUrl       String?
+  severity       String      @default("MEDIUM")
+  priorityScore  Float         @default(0)
+  priorityLevel  String @default("LOW")
+  status         String @default("PENDING")
+  reportCount    Int           @default(1)
+  affectedUsers  Int           @default(1)
+
+  // Foreign keys
+  reporterId String
+  reporter   User   @relation("Reporter", fields: [reporterId], references: [id], onDelete: Cascade)
+
+  // Relations
+  solutions     Solution[]
+  statusHistory ProblemStatusHistory[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status])
+  @@index([category])
+  @@index([severity])
+  @@index([reporterId])
+  @@index([city])
+}
+
+model Solution {
+  id             String         @id @default(cuid())
+  title          String
+  description    String
+  estimatedCost  String?
+  expectedImpact String
+  attachmentUrl  String?
+  status         String @default("PENDING")
+
+  // Foreign keys
+  problemId     String
+  problem       Problem @relation(fields: [problemId], references: [id], onDelete: Cascade)
+  contributorId String
+  contributor   User    @relation("Contributor", fields: [contributorId], references: [id], onDelete: Cascade)
+
+  // Relations
+  votes SolutionVote[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([problemId])
+  @@index([contributorId])
+  @@index([status])
+}
+
+model SolutionVote {
+  id         String   @id @default(cuid())
+  solutionId String
+  userId     String
+  createdAt  DateTime @default(now())
+
+  solution Solution @relation(fields: [solutionId], references: [id], onDelete: Cascade)
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Prevent duplicate votes from the same user on the same solution
+  @@unique([solutionId, userId])
+  @@index([solutionId])
+  @@index([userId])
+}
+
+model ProblemStatusHistory {
+  id        String        @id @default(cuid())
+  status    String
+  note      String?
+  createdAt DateTime      @default(now())
+
+  // Foreign keys
+  problemId   String
+  problem     Problem @relation(fields: [problemId], references: [id], onDelete: Cascade)
+  changedById String?
+  changedBy   User?   @relation(fields: [changedById], references: [id], onDelete: SetNull)
+
+  @@index([problemId])
+}
