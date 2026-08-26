@@ -87,7 +87,7 @@ const AdminSolutionsPage = () => {
                   {solutions.map(s => (
                     <tr key={s.id} className="hover:bg-dark-800/50 transition-colors">
                       <td className="px-4 py-3.5 max-w-[200px]">
-                        <p className="font-medium text-white line-clamp-1 text-xs">{s.title}</p>
+                        <p className="font-medium text-title line-clamp-1 text-xs">{s.title}</p>
                         <p className="text-xs text-dark-400 mt-0.5 line-clamp-1">{s.expectedImpact}</p>
                       </td>
                       <td className="px-4 py-3.5">

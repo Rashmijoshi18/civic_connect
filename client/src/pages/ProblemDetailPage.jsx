@@ -81,7 +81,7 @@ const ProblemDetailPage = () => {
     <div className="min-h-screen bg-dark-950 py-8">
       <div className="container-app">
         {/* Back */}
-        <Link to="/problems" className="inline-flex items-center gap-2 text-sm text-dark-300 hover:text-white mb-6 transition-colors">
+        <Link to="/problems" className="inline-flex items-center gap-2 text-sm text-dark-300 hover:text-title mb-6 transition-colors">
           <ArrowLeft size={15} /> Back to Explore
         </Link>
 
@@ -101,7 +101,7 @@ const ProblemDetailPage = () => {
                 <PriorityBadge score={problem.priorityScore} level={problem.priorityLevel} />
               </div>
 
-              <h1 className="text-2xl font-bold text-white mb-3">{problem.title}</h1>
+              <h1 className="text-2xl font-bold text-title mb-3">{problem.title}</h1>
 
               <div className="flex flex-wrap items-center gap-4 text-sm text-dark-300 mb-4">
                 <span className="flex items-center gap-1.5"><MapPin size={14} />{problem.location}, {problem.city}</span>
@@ -122,7 +122,7 @@ const ProblemDetailPage = () => {
             {/* Solutions section */}
             <div className="card card-body">
               <div className="flex items-center justify-between mb-5">
-                <h2 className="text-lg font-bold text-white">
+                <h2 className="text-lg font-bold text-title">
                   Proposed Solutions <span className="text-dark-400 font-normal text-base">({solutions.length})</span>
                 </h2>
                 {canPropose && (
@@ -136,7 +136,7 @@ const ProblemDetailPage = () => {
               {/* Solution form */}
               {showForm && (
                 <form onSubmit={handleSolutionSubmit} className="mb-6 p-4 bg-dark-850 rounded-xl border border-dark-700 space-y-3 animate-slide-up">
-                  <h3 className="text-sm font-semibold text-white">Submit Your Solution</h3>
+                  <h3 className="text-sm font-semibold text-title">Submit Your Solution</h3>
                   <div>
                     <label className="form-label">Solution Title *</label>
                     <input className="form-input" placeholder="Brief title for your solution"
@@ -194,7 +194,7 @@ const ProblemDetailPage = () => {
           <div className="space-y-5">
             {/* Stats */}
             <div className="card card-body">
-              <h3 className="text-sm font-semibold text-white mb-4">Problem Details</h3>
+              <h3 className="text-sm font-semibold text-title mb-4">Problem Details</h3>
               <dl className="space-y-3 text-sm">
                 {[
                   { label: 'Priority Score', value: <PriorityBadge score={problem.priorityScore} level={problem.priorityLevel} /> },
@@ -207,7 +207,7 @@ const ProblemDetailPage = () => {
                 ].map(({ label, value }) => (
                   <div key={label} className="flex items-center justify-between gap-2">
                     <dt className="text-dark-300">{label}</dt>
-                    <dd className="text-white font-medium text-right">{value}</dd>
+                    <dd className="text-title font-medium text-right">{value}</dd>
                   </div>
                 ))}
               </dl>
@@ -215,7 +215,7 @@ const ProblemDetailPage = () => {
 
             {/* Timeline */}
             <div className="card card-body">
-              <h3 className="text-sm font-semibold text-white mb-4">Problem Timeline</h3>
+              <h3 className="text-sm font-semibold text-title mb-4">Problem Timeline</h3>
               <ProblemTimeline status={problem.status} statusHistory={problem.statusHistory} />
             </div>
           </div>

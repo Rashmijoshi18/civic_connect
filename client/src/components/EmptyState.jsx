@@ -9,7 +9,7 @@ const EmptyState = ({ icon = 'empty', title = 'Nothing here yet', description = 
       <div className="w-16 h-16 bg-dark-700 rounded-2xl flex items-center justify-center mb-4">
         <Icon size={28} className="text-dark-400" />
       </div>
-      <h3 className="text-base font-semibold text-white mb-1">{title}</h3>
+      <h3 className="text-base font-semibold text-title mb-1">{title}</h3>
       {description && <p className="text-sm text-dark-300 max-w-xs">{description}</p>}
       {action && <div className="mt-4">{action}</div>}
     </div>

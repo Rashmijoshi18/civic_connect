@@ -111,7 +111,7 @@ const ExplorePage = () => {
         {showFilters && (
           <div className="card card-body mb-5 animate-slide-up">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-sm font-semibold text-white">Filters</h3>
+              <h3 className="text-sm font-semibold text-title">Filters</h3>
               {activeFilterCount > 0 && (
                 <button onClick={clearFilters} className="text-xs text-red-400 hover:underline flex items-center gap-1">
                   <X size={12} /> Clear all

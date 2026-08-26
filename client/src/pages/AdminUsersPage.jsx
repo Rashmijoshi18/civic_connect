@@ -105,7 +105,7 @@ const AdminUsersPage = () => {
                           <div className="w-8 h-8 rounded-full bg-primary-500/20 text-primary-400 flex items-center justify-center text-xs font-bold flex-shrink-0">
                             {getInitials(u.name)}
                           </div>
-                          <span className="font-medium text-white whitespace-nowrap">{u.name}</span>
+                          <span className="font-medium text-title whitespace-nowrap">{u.name}</span>
                         </div>
                       </td>
                       <td className="px-4 py-3.5 text-dark-300 text-xs">{u.email}</td>

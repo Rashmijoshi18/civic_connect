@@ -4,53 +4,95 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-surface-950: #f8fafc;
+    --color-surface-900: #f1f5f9;
+    --color-surface-850: #e2e8f0;
+    --color-surface-800: #cbd5e1;
+    --color-surface-750: #94a3b8;
+    --color-surface-700: #64748b;
+    --color-surface-650: #475569;
+    --color-surface-600: #334155;
+    --color-surface-500: #1e293b;
+    --color-surface-400: #0f172a;
+    --color-surface-300: #020617;
+    --color-surface-200: #000000;
+    --color-surface-100: #000000;
+
+    --color-text-main: #0f172a;
+    --color-bg-main: #f8fafc;
+    --color-text-title: #020617;
+  }
+
+  .dark {
+    --color-surface-950: #0a0a0f;
+    --color-surface-900: #0d0d14;
+    --color-surface-850: #10111a;
+    --color-surface-800: #141520;
+    --color-surface-750: #181927;
+    --color-surface-700: #1c1d2e;
+    --color-surface-650: #212236;
+    --color-surface-600: #282a3e;
+    --color-surface-500: #343650;
+    --color-surface-400: #4a4d6a;
+    --color-surface-300: #6b6f8d;
+    --color-surface-200: #8e92b0;
+    --color-surface-100: #b4b8d4;
+
+    --color-text-main: #b4b8d4;
+    --color-bg-main: #0a0a0f;
+    --color-text-title: #ffffff;
+  }
+
   * { box-sizing: border-box; }
+  
   body {
-    background-color: #0a0a0f;
-    color: #b4b8d4;
+    background-color: var(--color-bg-main);
+    color: var(--color-text-main);
     font-family: 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  
   h1, h2, h3, h4, h5, h6 { @apply font-semibold; }
 
   /* Scrollbar styling */
   ::-webkit-scrollbar { width: 6px; height: 6px; }
-  ::-webkit-scrollbar-track { background-color: #0d0d14; }
-  ::-webkit-scrollbar-thumb { background-color: #343650; border-radius: 9999px; }
-  ::-webkit-scrollbar-thumb:hover { background-color: #4a4d6a; }
+  ::-webkit-scrollbar-track { background-color: var(--color-surface-900); }
+  ::-webkit-scrollbar-thumb { background-color: var(--color-surface-500); border-radius: 9999px; }
+  ::-webkit-scrollbar-thumb:hover { background-color: var(--color-surface-400); }
 }
 
 @layer components {
   /* Buttons */
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 text-white font-medium rounded-lg transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
-    background-color: #0891b2;
-    box-shadow: 0 0 20px rgba(6, 182, 212, 0.25);
+    background-color: #2563eb;
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.1), 0 2px 4px -1px rgba(37, 99, 235, 0.06);
   }
   .btn-primary:hover {
-    background-color: #06b6d4;
-    box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+    background-color: #1d4ed8;
+    box-shadow: 0 6px 8px -1px rgba(37, 99, 235, 0.2), 0 4px 6px -1px rgba(37, 99, 235, 0.1);
   }
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 font-medium rounded-lg transition-all duration-200 shadow-sm active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
-    background-color: #1c1d2e;
-    color: #b4b8d4;
-    border: 1px solid #343650;
+    background-color: transparent;
+    color: var(--color-text-title);
+    border: 1px solid var(--color-surface-650);
   }
   .btn-secondary:hover {
-    background-color: #282a3e;
+    background-color: var(--color-surface-850);
   }
   .btn-danger {
     @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-red-600 hover:bg-red-500 text-white font-medium rounded-lg transition-all duration-200 shadow-sm hover:shadow-md active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
   }
   .btn-ghost {
     @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 font-medium rounded-lg transition-all duration-200 active:scale-95;
-    color: #8e92b0;
+    color: var(--color-surface-200);
   }
   .btn-ghost:hover {
-    color: #ffffff;
-    background-color: #1c1d2e;
+    color: var(--color-text-title);
+    background-color: var(--color-surface-850);
   }
   .btn-sm {
     @apply px-3 py-1.5 text-sm;
@@ -59,12 +101,12 @@
   /* Cards */
   .card {
     @apply rounded-xl transition-all duration-200;
-    background-color: #141520;
-    border: 1px solid #212236;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px -1px rgba(0, 0, 0, 0.3);
+    background-color: var(--color-surface-950);
+    border: 1px solid var(--color-surface-850);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.03);
   }
   .card:hover {
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
   }
   .card-body {
     @apply p-5;
@@ -73,12 +115,12 @@
   /* Form inputs */
   .form-input {
     @apply w-full px-3.5 py-2.5 rounded-lg text-sm transition-all duration-200;
-    background-color: #10111a;
-    border: 1px solid #282a3e;
-    color: #b4b8d4;
+    background-color: var(--color-surface-850);
+    border: 1px solid var(--color-surface-600);
+    color: var(--color-surface-100);
   }
   .form-input::placeholder {
-    color: #4a4d6a;
+    color: var(--color-surface-400);
   }
   .form-input:focus {
     outline: none;
@@ -87,7 +129,7 @@
   }
   .form-label {
     @apply block text-sm font-medium mb-1.5;
-    color: #8e92b0;
+    color: var(--color-surface-200);
   }
   .form-error {
     @apply text-xs text-red-400 mt-1;
@@ -106,7 +148,7 @@
   .badge-resolved  { background-color: rgba(16, 185, 129, 0.15); color: #34d399; }
   .badge-rejected  { background-color: rgba(239, 68, 68, 0.15); color: #f87171; }
 
-  .badge-low      { background-color: #282a3e; color: #6b6f8d; }
+  .badge-low      { background-color: var(--color-surface-600); color: var(--color-surface-300); }
   .badge-medium   { background-color: rgba(234, 179, 8, 0.15); color: #fbbf24; }
   .badge-high     { background-color: rgba(249, 115, 22, 0.15); color: #fb923c; }
   .badge-critical { background-color: rgba(239, 68, 68, 0.15); color: #f87171; }
@@ -114,7 +156,7 @@
   /* Sidebar */
   .sidebar-link {
     @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-150;
-    color: #6b6f8d;
+    color: var(--color-surface-300);
   }
   .sidebar-link:hover {
     color: #22d3ee;
@@ -130,11 +172,12 @@
     @apply mb-6;
   }
   .page-title {
-    @apply text-2xl font-bold text-white;
+    @apply text-2xl font-bold;
+    color: var(--color-text-title);
   }
   .page-subtitle {
     @apply text-sm mt-1;
-    color: #6b6f8d;
+    color: var(--color-surface-300);
   }
 
   /* Section containers */
@@ -145,14 +188,14 @@
   /* Skeleton */
   .skeleton {
     @apply animate-pulse rounded;
-    background-color: #1c1d2e;
+    background-color: var(--color-surface-700);
   }
 
   /* Glassmorphism utility */
   .glass {
-    background-color: rgba(20, 21, 32, 0.6);
+    background-color: color-mix(in srgb, var(--color-surface-800) 60%, transparent);
     backdrop-filter: blur(24px);
-    border: 1px solid rgba(40, 42, 62, 0.5);
+    border: 1px solid color-mix(in srgb, var(--color-surface-600) 50%, transparent);
   }
 }
 

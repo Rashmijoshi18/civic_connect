@@ -107,7 +107,7 @@ const AdminProblemsPage = () => {
                   {problems.map(p => (
                     <tr key={p.id} className="hover:bg-dark-800/50 transition-colors">
                       <td className="px-4 py-3.5 max-w-[200px]">
-                        <Link to={`/problems/${p.id}`} className="font-medium text-white hover:text-primary-400 line-clamp-2 text-xs">
+                        <Link to={`/problems/${p.id}`} className="font-medium text-title hover:text-primary-400 line-clamp-2 text-xs">
                           {p.title}
                         </Link>
                         <p className="text-xs text-dark-400 mt-0.5">{CATEGORY_LABELS[p.category]} • {p.city}</p>

@@ -15,7 +15,7 @@ const ProblemCard = ({ problem }) => {
             <span className="text-xs font-medium text-primary-400 bg-primary-500/10 px-2 py-0.5 rounded-full">
               {CATEGORY_LABELS[category] || category}
             </span>
-            <h3 className="mt-2 font-semibold text-white text-sm leading-snug group-hover:text-primary-400 transition-colors line-clamp-2">
+            <h3 className="mt-2 font-semibold text-title text-sm leading-snug group-hover:text-primary-400 transition-colors line-clamp-2">
               {title}
             </h3>
           </div>

@@ -79,7 +79,7 @@ const ReportProblemPage = () => {
           <div className="w-20 h-20 bg-emerald-500/15 rounded-full flex items-center justify-center mx-auto mb-4">
             <CheckCircle2 size={40} className="text-emerald-400" />
           </div>
-          <h2 className="text-2xl font-bold text-white mb-3">Problem Submitted!</h2>
+          <h2 className="text-2xl font-bold text-title mb-3">Problem Submitted!</h2>
           <p className="text-dark-300 mb-2">
             Your problem has been submitted successfully and is now pending review.
           </p>

@@ -17,7 +17,7 @@ const StatCard = ({ label, value, icon: Icon, color }) => (
         <Icon size={17} />
       </div>
     </div>
-    <p className="text-2xl font-bold text-white">{value ?? '—'}</p>
+    <p className="text-2xl font-bold text-title">{value ?? '—'}</p>
   </div>
 );
 
@@ -58,7 +58,7 @@ const OrgDashboard = () => {
         {/* Recent Proposals */}
         <div className="card">
           <div className="flex items-center justify-between px-5 py-4 border-b border-dark-700">
-            <h2 className="font-semibold text-white">My Proposals</h2>
+            <h2 className="font-semibold text-title">My Proposals</h2>
             <Link to="/problems" className="text-sm text-primary-400 hover:underline">Browse Problems</Link>
           </div>
 
@@ -89,7 +89,7 @@ const OrgDashboard = () => {
                   {data.recentSolutions.map(s => (
                     <tr key={s.id} className="hover:bg-dark-800/50 transition-colors">
                       <td className="px-5 py-3.5">
-                        <p className="font-medium text-white line-clamp-1">{s.title}</p>
+                        <p className="font-medium text-title line-clamp-1">{s.title}</p>
                         <p className="text-xs text-dark-400 line-clamp-1">{s.expectedImpact}</p>
                       </td>
                       <td className="px-5 py-3.5">

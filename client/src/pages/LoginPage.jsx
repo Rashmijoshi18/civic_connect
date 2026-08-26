@@ -45,9 +45,9 @@ const LoginPage = () => {
             <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center group-hover:shadow-glow transition-all">
               <MapPin size={20} className="text-white" />
             </div>
-            <span className="text-2xl font-bold text-white">Civic<span className="text-primary-400">Connect</span></span>
+            <span className="text-2xl font-bold text-title">Civic<span className="text-primary-400">Connect</span></span>
           </Link>
-          <h1 className="mt-6 text-2xl font-bold text-white">Welcome back</h1>
+          <h1 className="mt-6 text-2xl font-bold text-title">Welcome back</h1>
           <p className="mt-1 text-sm text-dark-300">Sign in to your account to continue</p>
         </div>
 

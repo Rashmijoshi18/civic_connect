@@ -40,7 +40,7 @@ const Sidebar = () => {
             {user?.name?.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2)}
           </div>
           <div className="min-w-0">
-            <p className="text-sm font-semibold text-white truncate">{user?.name}</p>
+            <p className="text-sm font-semibold text-title truncate">{user?.name}</p>
             <p className="text-xs text-dark-400">{roleLabel}</p>
           </div>
         </div>

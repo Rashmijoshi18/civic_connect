@@ -25,7 +25,7 @@ const StatCard = ({ label, value, icon: Icon, color, sub }) => (
         <Icon size={17} />
       </div>
     </div>
-    <p className="text-2xl font-bold text-white">{value ?? '—'}</p>
+    <p className="text-2xl font-bold text-title">{value ?? '—'}</p>
     {sub && <p className="text-xs text-dark-400 mt-0.5">{sub}</p>}
   </div>
 );
@@ -95,7 +95,7 @@ const AdminDashboard = () => {
           <div className="grid lg:grid-cols-2 gap-5 mb-7">
             {/* Category bar chart */}
             <div className="card card-body">
-              <h3 className="text-sm font-semibold text-white mb-5">Problems by Category</h3>
+              <h3 className="text-sm font-semibold text-title mb-5">Problems by Category</h3>
               <ResponsiveContainer width="100%" height={220}>
                 <BarChart data={categoryData} margin={{ top: 0, right: 10, left: -20, bottom: 0 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#282a3e" />
@@ -109,7 +109,7 @@ const AdminDashboard = () => {
 
             {/* Status pie chart */}
             <div className="card card-body">
-              <h3 className="text-sm font-semibold text-white mb-5">Problems by Status</h3>
+              <h3 className="text-sm font-semibold text-title mb-5">Problems by Status</h3>
               <ResponsiveContainer width="100%" height={220}>
                 <PieChart>
                   <Pie data={statusData} cx="50%" cy="50%" innerRadius={55} outerRadius={90}
@@ -125,7 +125,7 @@ const AdminDashboard = () => {
             {/* Over time line chart */}
             {problemsOverTime.length > 0 && (
               <div className="card card-body lg:col-span-2">
-                <h3 className="text-sm font-semibold text-white mb-5">Problems Over Time (Last 6 Months)</h3>
+                <h3 className="text-sm font-semibold text-title mb-5">Problems Over Time (Last 6 Months)</h3>
                 <ResponsiveContainer width="100%" height={200}>
                   <LineChart data={problemsOverTime}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#282a3e" />
@@ -143,7 +143,7 @@ const AdminDashboard = () => {
         {/* Recent Problems */}
         <div className="card">
           <div className="flex items-center justify-between px-5 py-4 border-b border-dark-700">
-            <h2 className="font-semibold text-white">Recent Problems</h2>
+            <h2 className="font-semibold text-title">Recent Problems</h2>
             <Link to="/admin/problems" className="text-sm text-primary-400 hover:underline">Manage All</Link>
           </div>
           {loading ? (
@@ -168,7 +168,7 @@ const AdminDashboard = () => {
                   {recentProblems.map(p => (
                     <tr key={p.id} className="hover:bg-dark-800/50 transition-colors">
                       <td className="px-5 py-3.5">
-                        <Link to={`/problems/${p.id}`} className="font-medium text-white hover:text-primary-400 line-clamp-1 max-w-xs">
+                        <Link to={`/problems/${p.id}`} className="font-medium text-title hover:text-primary-400 line-clamp-1 max-w-xs">
                           {p.title}
                         </Link>
                         <p className="text-xs text-dark-400">{CATEGORY_LABELS[p.category]}</p>

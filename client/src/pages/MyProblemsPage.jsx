@@ -70,7 +70,7 @@ const MyProblemsPage = () => {
                   {problems.map(p => (
                     <tr key={p.id} className="hover:bg-dark-800/50 transition-colors">
                       <td className="px-5 py-3.5 max-w-[200px]">
-                        <Link to={`/problems/${p.id}`} className="font-medium text-white hover:text-primary-400 line-clamp-1">{p.title}</Link>
+                        <Link to={`/problems/${p.id}`} className="font-medium text-title hover:text-primary-400 line-clamp-1">{p.title}</Link>
                       </td>
                       <td className="px-5 py-3.5 text-dark-300 whitespace-nowrap">{CATEGORY_LABELS[p.category]}</td>
                       <td className="px-5 py-3.5 text-dark-300 whitespace-nowrap">{p.city}</td>

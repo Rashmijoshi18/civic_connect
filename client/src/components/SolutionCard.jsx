@@ -38,7 +38,7 @@ const SolutionCard = ({ solution, onVoteUpdate }) => {
             {getInitials(solution.contributor?.name)}
           </div>
           <div>
-            <p className="text-sm font-medium text-white">{solution.contributor?.name}</p>
+            <p className="text-sm font-medium text-title">{solution.contributor?.name}</p>
             <p className="text-xs text-dark-400 capitalize">{solution.contributor?.role?.toLowerCase()}</p>
           </div>
         </div>
@@ -46,7 +46,7 @@ const SolutionCard = ({ solution, onVoteUpdate }) => {
       </div>
 
       {/* Title */}
-      <h4 className="font-semibold text-white mb-2">{solution.title}</h4>
+      <h4 className="font-semibold text-title mb-2">{solution.title}</h4>
       <p className="text-sm text-dark-200 mb-3 leading-relaxed">{solution.description}</p>
 
       {/* Details */}

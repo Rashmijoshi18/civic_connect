@@ -51,9 +51,9 @@ const RegisterPage = () => {
             <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center">
               <MapPin size={20} className="text-white" />
             </div>
-            <span className="text-2xl font-bold text-white">Civic<span className="text-primary-400">Connect</span></span>
+            <span className="text-2xl font-bold text-title">Civic<span className="text-primary-400">Connect</span></span>
           </Link>
-          <h1 className="mt-6 text-2xl font-bold text-white">Create your account</h1>
+          <h1 className="mt-6 text-2xl font-bold text-title">Create your account</h1>
           <p className="mt-1 text-sm text-dark-300">Join the community making India better</p>
         </div>
 

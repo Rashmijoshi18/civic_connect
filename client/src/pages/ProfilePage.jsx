@@ -68,9 +68,9 @@ const ProfilePage = () => {
                     </>
                   ) : (
                     <>
-                      <h2 className="text-xl font-bold text-white">{user?.name}</h2>
+                      <h2 className="text-xl font-bold text-title">{user?.name}</h2>
                       <button onClick={() => setEditing(true)}
-                        className="p-1.5 text-dark-400 hover:text-white hover:bg-dark-700 rounded-lg transition-colors">
+                        className="p-1.5 text-dark-400 hover:text-title hover:bg-dark-700 rounded-lg transition-colors">
                         <Edit2 size={14} />
                       </button>
                     </>
@@ -94,7 +94,7 @@ const ProfilePage = () => {
           {/* Stats */}
           {stats && (
             <div className="card card-body">
-              <h3 className="text-sm font-semibold text-white mb-4">Contribution Stats</h3>
+              <h3 className="text-sm font-semibold text-title mb-4">Contribution Stats</h3>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {[
                   { label: 'Problems Reported', value: stats.totalReported },
@@ -103,7 +103,7 @@ const ProfilePage = () => {
                   { label: 'Resolved', value: stats.resolvedProblems },
                 ].map(({ label, value }) => (
                   <div key={label} className="text-center p-3 bg-dark-850 rounded-xl border border-dark-700">
-                    <p className="text-2xl font-bold text-white">{value}</p>
+                    <p className="text-2xl font-bold text-title">{value}</p>
                     <p className="text-xs text-dark-300 mt-0.5">{label}</p>
                   </div>
                 ))}
@@ -113,7 +113,7 @@ const ProfilePage = () => {
 
           {/* Account info */}
           <div className="card card-body">
-            <h3 className="text-sm font-semibold text-white mb-4">Account Information</h3>
+            <h3 className="text-sm font-semibold text-title mb-4">Account Information</h3>
             <dl className="space-y-3 text-sm">
               {[
                 { label: 'Full Name', value: user?.name },
@@ -124,7 +124,7 @@ const ProfilePage = () => {
               ].map(({ label, value }) => (
                 <div key={label} className="flex items-center justify-between py-2 border-b border-dark-700/50 last:border-0">
                   <dt className="text-dark-300">{label}</dt>
-                  <dd className="font-medium text-white">{value}</dd>
+                  <dd className="font-medium text-title">{value}</dd>
                 </div>
               ))}
             </dl>

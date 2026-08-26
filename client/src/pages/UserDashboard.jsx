@@ -18,7 +18,7 @@ const StatCard = ({ label, value, icon: Icon, color, sub }) => (
         <Icon size={17} />
       </div>
     </div>
-    <p className="text-2xl font-bold text-white">{value ?? '—'}</p>
+    <p className="text-2xl font-bold text-title">{value ?? '—'}</p>
     {sub && <p className="text-xs text-dark-400 mt-0.5">{sub}</p>}
   </div>
 );
@@ -79,7 +79,7 @@ const UserDashboard = () => {
                 <Lightbulb size={22} />
               </div>
               <div>
-                <p className="text-2xl font-bold text-white">{stats?.totalSolutions ?? 0}</p>
+                <p className="text-2xl font-bold text-title">{stats?.totalSolutions ?? 0}</p>
                 <p className="text-sm text-dark-300">Solutions Submitted</p>
               </div>
             </div>
@@ -88,7 +88,7 @@ const UserDashboard = () => {
                 <ThumbsUp size={22} />
               </div>
               <div>
-                <p className="text-2xl font-bold text-white">{stats?.totalVotesReceived ?? 0}</p>
+                <p className="text-2xl font-bold text-title">{stats?.totalVotesReceived ?? 0}</p>
                 <p className="text-sm text-dark-300">Votes Received</p>
               </div>
             </div>
@@ -97,7 +97,7 @@ const UserDashboard = () => {
                 <TrendingUp size={22} />
               </div>
               <div>
-                <p className="text-2xl font-bold text-white">{stats?.resolvedProblems ?? 0}</p>
+                <p className="text-2xl font-bold text-title">{stats?.resolvedProblems ?? 0}</p>
                 <p className="text-sm text-dark-300">Problems Helped Resolve</p>
               </div>
             </div>
@@ -107,7 +107,7 @@ const UserDashboard = () => {
         {/* Recent Problems */}
         <div className="card">
           <div className="flex items-center justify-between px-5 py-4 border-b border-dark-700">
-            <h2 className="font-semibold text-white">My Recent Problems</h2>
+            <h2 className="font-semibold text-title">My Recent Problems</h2>
             <Link to="/my-problems" className="text-sm text-primary-400 hover:underline">View all</Link>
           </div>
           {loading ? (
@@ -139,7 +139,7 @@ const UserDashboard = () => {
                   {problems.map(p => (
                     <tr key={p.id} className="hover:bg-dark-800/50 transition-colors">
                       <td className="px-5 py-3.5">
-                        <Link to={`/problems/${p.id}`} className="font-medium text-white hover:text-primary-400 line-clamp-1 max-w-xs">
+                        <Link to={`/problems/${p.id}`} className="font-medium text-title hover:text-primary-400 line-clamp-1 max-w-xs">
                           {p.title}
                         </Link>
                         <p className="text-xs text-dark-400 mt-0.5">{p.city}</p>
