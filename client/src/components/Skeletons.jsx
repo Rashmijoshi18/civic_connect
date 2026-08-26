@@ -13,7 +13,7 @@ export const CardSkeleton = () => (
       <div className="skeleton h-5 w-14 rounded-full" />
       <div className="skeleton h-5 w-14 rounded-full" />
     </div>
-    <div className="border-t border-gray-100 pt-3 flex justify-between">
+    <div className="border-t border-dark-700 pt-3 flex justify-between">
       <div className="skeleton h-3 w-20" />
       <div className="skeleton h-3 w-16" />
     </div>

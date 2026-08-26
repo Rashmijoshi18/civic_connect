@@ -28,16 +28,16 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
+    <nav className="sticky top-0 z-50 bg-dark-900/90 backdrop-blur-xl border-b border-dark-700/50 shadow-lg shadow-dark-950/50">
       <div className="container-app">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center group-hover:bg-primary-700 transition-colors">
+            <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-primary-700 rounded-lg flex items-center justify-center group-hover:shadow-glow transition-all duration-300">
               <MapPin size={16} className="text-white" />
             </div>
-            <span className="font-bold text-gray-900 text-lg">
-              Civic<span className="text-primary-600">Connect</span>
+            <span className="font-bold text-white text-lg">
+              Civic<span className="text-primary-400">Connect</span>
             </span>
           </Link>
 
@@ -49,8 +49,8 @@ const Navbar = () => {
                 to={to}
                 className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors ${
                   location.pathname === to
-                    ? 'bg-primary-50 text-primary-700'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                    ? 'bg-primary-500/15 text-primary-400'
+                    : 'text-dark-300 hover:text-white hover:bg-dark-700'
                 }`}
               >
                 {label}
@@ -64,27 +64,27 @@ const Navbar = () => {
               <div className="relative">
                 <button
                   onClick={() => setProfileOpen(!profileOpen)}
-                  className="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors"
+                  className="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors"
                 >
-                  <div className="w-8 h-8 bg-primary-100 text-primary-700 rounded-full flex items-center justify-center text-xs font-bold">
+                  <div className="w-8 h-8 bg-primary-500/20 text-primary-400 rounded-full flex items-center justify-center text-xs font-bold ring-1 ring-primary-500/30">
                     {getInitials(user?.name)}
                   </div>
                   <div className="text-left">
-                    <p className="text-sm font-medium text-gray-900 leading-none">{user?.name?.split(' ')[0]}</p>
-                    <p className="text-xs text-gray-400 capitalize">{user?.role?.toLowerCase()}</p>
+                    <p className="text-sm font-medium text-white leading-none">{user?.name?.split(' ')[0]}</p>
+                    <p className="text-xs text-dark-400 capitalize">{user?.role?.toLowerCase()}</p>
                   </div>
-                  <ChevronDown size={14} className={`text-gray-400 transition-transform ${profileOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown size={14} className={`text-dark-400 transition-transform ${profileOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 {profileOpen && (
-                  <div className="absolute right-0 mt-1 w-48 bg-white border border-gray-100 rounded-xl shadow-lg py-1 animate-fade-in">
+                  <div className="absolute right-0 mt-1 w-48 bg-dark-800 border border-dark-600 rounded-xl shadow-lg shadow-dark-950/50 py-1 animate-fade-in">
                     <Link to="/profile" onClick={() => setProfileOpen(false)}
-                      className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition-colors">
+                      className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-dark-200 hover:bg-dark-700 hover:text-white transition-colors">
                       <User size={15} /> Profile
                     </Link>
-                    <hr className="my-1 border-gray-100" />
+                    <hr className="my-1 border-dark-600" />
                     <button onClick={handleLogout}
-                      className="w-full flex items-center gap-2.5 px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 transition-colors">
+                      className="w-full flex items-center gap-2.5 px-4 py-2.5 text-sm text-red-400 hover:bg-red-500/10 transition-colors">
                       <LogOut size={15} /> Sign Out
                     </button>
                   </div>
@@ -99,7 +99,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile menu button */}
-          <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden p-2 rounded-lg hover:bg-gray-100">
+          <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden p-2 rounded-lg hover:bg-dark-700 text-dark-300">
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
@@ -107,11 +107,11 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden border-t border-gray-100 bg-white px-4 py-3 space-y-1 animate-slide-up">
+        <div className="md:hidden border-t border-dark-700 bg-dark-900 px-4 py-3 space-y-1 animate-slide-up">
           {navLinks.map(({ to, label, icon: Icon }) => (
             <Link key={to} to={to} onClick={() => setMenuOpen(false)}
               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium ${
-                location.pathname === to ? 'bg-primary-50 text-primary-700' : 'text-gray-600'
+                location.pathname === to ? 'bg-primary-500/15 text-primary-400' : 'text-dark-300'
               }`}>
               <Icon size={16} />{label}
             </Link>
@@ -119,11 +119,11 @@ const Navbar = () => {
           {isAuthenticated ? (
             <>
               <Link to="/profile" onClick={() => setMenuOpen(false)}
-                className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600">
+                className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-dark-300">
                 <User size={16} /> Profile
               </Link>
               <button onClick={handleLogout}
-                className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-red-600">
+                className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-red-400">
                 <LogOut size={16} /> Sign Out
               </button>
             </>

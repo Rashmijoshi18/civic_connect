@@ -20,10 +20,10 @@ export const SolutionStatusBadge = ({ status }) => (
 
 export const PriorityBadge = ({ score, level }) => {
   const colorMap = {
-    LOW: 'text-gray-500 bg-gray-100',
-    MEDIUM: 'text-yellow-700 bg-yellow-100',
-    HIGH: 'text-orange-700 bg-orange-100',
-    CRITICAL: 'text-red-700 bg-red-100',
+    LOW: 'text-dark-300 bg-dark-600',
+    MEDIUM: 'text-yellow-400 bg-yellow-500/15',
+    HIGH: 'text-orange-400 bg-orange-500/15',
+    CRITICAL: 'text-red-400 bg-red-500/15',
   };
   return (
     <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold ${colorMap[level] || colorMap.LOW}`}>
