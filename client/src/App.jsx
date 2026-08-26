@@ -35,9 +35,9 @@ function App() {
           position="top-right"
           toastOptions={{
             duration: 3500,
-            style: { borderRadius: '10px', fontSize: '14px', fontWeight: '500' },
-            success: { iconTheme: { primary: '#10b981', secondary: '#fff' } },
-            error: { iconTheme: { primary: '#ef4444', secondary: '#fff' } },
+            style: { borderRadius: '10px', fontSize: '14px', fontWeight: '500', background: '#1c1d2e', color: '#b4b8d4', border: '1px solid #282a3e' },
+            success: { iconTheme: { primary: '#34d399', secondary: '#0d0d14' } },
+            error: { iconTheme: { primary: '#f87171', secondary: '#0d0d14' } },
           }}
         />
 
