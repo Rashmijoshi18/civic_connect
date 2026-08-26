@@ -44,7 +44,7 @@ const LandingPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-dark-950 text-navy-800 dark:text-dark-200 transition-colors">
+    <div className="min-h-screen bg-dark-950 transition-colors">
       {/* ── Hero ───────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden pt-20 pb-24 md:pt-28 md:pb-32">
         {/* Subtle background decoration */}
@@ -63,12 +63,12 @@ const LandingPage = () => {
                 Empowering Communities Across India
               </div>
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] mb-6 text-navy-800 dark:text-white tracking-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] mb-6 text-title tracking-tight">
                 Report Problems. <br />
                 <span className="text-primary-600">Build Better Communities.</span>
               </h1>
               
-              <p className="text-lg md:text-xl text-navy-500 dark:text-dark-300 mb-8 font-light leading-relaxed">
+              <p className="text-lg md:text-xl text-dark-300 mb-8 font-light leading-relaxed">
                 CivicConnect is the modern platform for citizens to report local issues, track progress, and collaborate directly with civic authorities.
               </p>
               
@@ -81,7 +81,7 @@ const LandingPage = () => {
                 </Link>
                 <Link
                   to="/problems"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white dark:bg-dark-900 border border-slate-200 dark:border-dark-600 text-navy-700 dark:text-dark-100 font-semibold rounded-lg hover:bg-slate-50 dark:hover:bg-dark-800 transition-all active:scale-95 shadow-sm"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-dark-900 border border-dark-650 text-title font-semibold rounded-lg hover:bg-dark-850 transition-all active:scale-95 shadow-sm"
                 >
                   Explore Problems <ChevronRight size={16} />
                 </Link>
@@ -90,16 +90,16 @@ const LandingPage = () => {
 
             {/* Right Visual (Dashboard Illustration) */}
             <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
-              <div className="relative rounded-2xl bg-white dark:bg-dark-900 border border-slate-200 dark:border-dark-700 shadow-2xl p-4 md:p-6 overflow-hidden">
+              <div className="relative rounded-2xl bg-dark-900 border border-dark-650 shadow-2xl p-4 md:p-6 overflow-hidden">
                 {/* Mock header */}
-                <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-100 dark:border-dark-800">
+                <div className="flex items-center justify-between mb-6 pb-4 border-b border-dark-750">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/50 flex items-center justify-center">
                       <MapPin className="text-primary-600" size={20} />
                     </div>
                     <div>
-                      <div className="text-sm font-bold text-navy-800 dark:text-white">Active Issues</div>
-                      <div className="text-xs text-navy-500 dark:text-dark-400">Mumbai Central</div>
+                      <div className="text-sm font-bold text-title">Active Issues</div>
+                      <div className="text-xs text-dark-300">Mumbai Central</div>
                     </div>
                   </div>
                   <div className="px-3 py-1 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 rounded-full text-xs font-semibold">
@@ -114,15 +114,15 @@ const LandingPage = () => {
                     { title: 'Streetlight completely out', status: 'Pending', color: 'bg-amber-500', time: '2 hours ago' },
                     { title: 'Water pipe leakage', status: 'Resolved', color: 'bg-emerald-500', time: '1 day ago' },
                   ].map((item, i) => (
-                    <div key={i} className="flex items-center justify-between p-3 rounded-lg bg-slate-50 dark:bg-dark-850 border border-slate-100 dark:border-dark-700">
+                    <div key={i} className="flex items-center justify-between p-3 rounded-lg bg-dark-850 border border-dark-700">
                       <div className="flex items-center gap-3">
                         <div className={`w-2 h-2 rounded-full ${item.color}`} />
                         <div>
-                          <div className="text-sm font-medium text-navy-800 dark:text-white">{item.title}</div>
-                          <div className="text-xs text-navy-500 dark:text-dark-400">{item.time}</div>
+                          <div className="text-sm font-medium text-title">{item.title}</div>
+                          <div className="text-xs text-dark-300">{item.time}</div>
                         </div>
                       </div>
-                      <div className="text-xs font-medium text-navy-600 dark:text-dark-300 bg-white dark:bg-dark-900 px-2 py-1 rounded shadow-sm border border-slate-100 dark:border-dark-700">
+                      <div className="text-xs font-medium text-dark-300 bg-dark-900 px-2 py-1 rounded shadow-sm border border-dark-700">
                         {item.status}
                       </div>
                     </div>
@@ -139,11 +139,11 @@ const LandingPage = () => {
       </section>
 
       {/* ── Features ───────────────────────────────────────────────────── */}
-      <section className="py-20 bg-slate-50 dark:bg-dark-900/50">
+      <section className="py-20 bg-dark-900">
         <div className="container-app">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-extrabold text-navy-800 dark:text-white mb-4 tracking-tight">Making Communities Better, Together</h2>
-            <p className="text-lg text-navy-500 dark:text-dark-300">
+            <h2 className="text-3xl font-extrabold text-title mb-4 tracking-tight">Making Communities Better, Together</h2>
+            <p className="text-lg text-dark-300">
               Report issues, track progress, and collaborate with your community to build a cleaner, safer environment.
             </p>
           </div>
@@ -155,12 +155,12 @@ const LandingPage = () => {
               { title: 'Community Collaboration', desc: 'Support and interact with reports submitted by people in your area.', icon: Users, color: 'text-purple-600', bg: 'bg-purple-100 dark:bg-purple-500/20' },
               { title: 'Transparent Governance', desc: 'Help create visibility into civic problems and their resolution.', icon: Shield, color: 'text-emerald-600', bg: 'bg-emerald-100 dark:bg-emerald-500/20' },
             ].map(({ title, desc, icon: Icon, color, bg }, idx) => (
-              <div key={idx} className="bg-white dark:bg-dark-850 p-6 rounded-2xl border border-slate-200 dark:border-dark-700 shadow-sm hover:shadow-md transition-shadow group">
+              <div key={idx} className="bg-dark-850 p-6 rounded-2xl border border-dark-650 shadow-sm hover:shadow-md transition-shadow group">
                 <div className={`w-12 h-12 rounded-xl ${bg} flex items-center justify-center mb-5 group-hover:scale-105 transition-transform`}>
                   <Icon className={color} size={24} />
                 </div>
-                <h3 className="text-lg font-bold text-navy-800 dark:text-white mb-2">{title}</h3>
-                <p className="text-sm text-navy-500 dark:text-dark-300 leading-relaxed">{desc}</p>
+                <h3 className="text-lg font-bold text-title mb-2">{title}</h3>
+                <p className="text-sm text-dark-300 leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
@@ -171,8 +171,8 @@ const LandingPage = () => {
       <section ref={statsRef} className="py-16 bg-primary-600 dark:bg-primary-900/40 border-y border-primary-700 dark:border-primary-800/50 relative overflow-hidden">
         {/* Background elements */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute -top-24 -left-24 w-96 h-96 bg-white rounded-full blur-3xl" />
-          <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-white rounded-full blur-3xl" />
+          <div className="absolute -top-24 -left-24 w-96 h-96 bg-white/20 rounded-full blur-3xl" />
+          <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-white/20 rounded-full blur-3xl" />
         </div>
         
         <div className="container-app relative z-10">
@@ -197,12 +197,12 @@ const LandingPage = () => {
       </section>
 
       {/* ── Explore Preview ────────────────────────────────────────────── */}
-      <section className="py-24 bg-white dark:bg-dark-950">
+      <section className="py-24 bg-dark-950">
         <div className="container-app">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
             <div className="max-w-2xl">
-              <h2 className="text-3xl font-extrabold text-navy-800 dark:text-white mb-4 tracking-tight">Recent Reports in Your Area</h2>
-              <p className="text-lg text-navy-500 dark:text-dark-300">
+              <h2 className="text-3xl font-extrabold text-title mb-4 tracking-tight">Recent Reports in Your Area</h2>
+              <p className="text-lg text-dark-300">
                 See what citizens are reporting and how authorities are responding.
               </p>
             </div>
@@ -213,29 +213,29 @@ const LandingPage = () => {
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { title: 'Pothole on Main Road', category: 'Roads', location: 'Downtown Avenue', status: 'In Progress', statusColor: 'bg-blue-100 text-blue-700 dark:bg-blue-500/20 dark:text-blue-400', date: 'Oct 12, 2024', icon: Truck },
-              { title: 'Streetlight Not Working', category: 'Electricity', location: 'Park Street, Sector 4', status: 'Resolved', statusColor: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-400', date: 'Oct 10, 2024', icon: Zap },
-              { title: 'Garbage Collection Issue', category: 'Waste', location: 'North Residential Area', status: 'Pending', statusColor: 'bg-amber-100 text-amber-700 dark:bg-amber-500/20 dark:text-amber-400', date: 'Oct 14, 2024', icon: AlertTriangle },
+              { title: 'Pothole on Main Road', category: 'Roads', location: 'Downtown Avenue', status: 'In Progress', statusColor: 'bg-blue-500/20 text-blue-400', date: 'Oct 12, 2024', icon: Truck },
+              { title: 'Streetlight Not Working', category: 'Electricity', location: 'Park Street, Sector 4', status: 'Resolved', statusColor: 'bg-emerald-500/20 text-emerald-400', date: 'Oct 10, 2024', icon: Zap },
+              { title: 'Garbage Collection Issue', category: 'Waste', location: 'North Residential Area', status: 'Pending', statusColor: 'bg-amber-500/20 text-amber-400', date: 'Oct 14, 2024', icon: AlertTriangle },
             ].map((prob, idx) => (
-              <div key={idx} className="bg-white dark:bg-dark-900 border border-slate-200 dark:border-dark-700 rounded-2xl p-5 hover:shadow-lg transition-all group flex flex-col">
+              <div key={idx} className="bg-dark-900 border border-dark-700 rounded-2xl p-5 hover:shadow-lg transition-all group flex flex-col">
                 <div className="flex justify-between items-start mb-4">
-                  <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-dark-800 flex items-center justify-center">
-                    <prob.icon size={18} className="text-navy-600 dark:text-dark-300" />
+                  <div className="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center">
+                    <prob.icon size={18} className="text-dark-300" />
                   </div>
                   <span className={`px-2.5 py-1 text-xs font-bold rounded-full ${prob.statusColor}`}>
                     {prob.status}
                   </span>
                 </div>
-                <h3 className="text-lg font-bold text-navy-800 dark:text-white mb-2 line-clamp-1">{prob.title}</h3>
+                <h3 className="text-lg font-bold text-title mb-2 line-clamp-1">{prob.title}</h3>
                 <div className="space-y-2 mb-6 flex-1">
-                  <div className="flex items-center gap-2 text-sm text-navy-500 dark:text-dark-400">
+                  <div className="flex items-center gap-2 text-sm text-dark-400">
                     <MapPin size={14} /> <span className="line-clamp-1">{prob.location}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-navy-500 dark:text-dark-400">
+                  <div className="flex items-center gap-2 text-sm text-dark-400">
                     <Clock size={14} /> <span>{prob.date}</span>
                   </div>
                 </div>
-                <Link to="/problems" className="w-full py-2.5 px-4 bg-slate-50 dark:bg-dark-850 text-navy-700 dark:text-dark-200 font-semibold text-sm rounded-lg text-center border border-slate-200 dark:border-dark-700 hover:bg-slate-100 dark:hover:bg-dark-800 transition-colors">
+                <Link to="/problems" className="w-full py-2.5 px-4 bg-dark-850 text-dark-200 font-semibold text-sm rounded-lg text-center border border-dark-700 hover:bg-dark-800 transition-colors">
                   View Details
                 </Link>
               </div>
@@ -245,15 +245,15 @@ const LandingPage = () => {
       </section>
 
       {/* ── Final CTA ──────────────────────────────────────────────────── */}
-      <section className="py-20 bg-slate-50 dark:bg-dark-900">
+      <section className="py-20 bg-dark-900">
         <div className="container-app">
-          <div className="bg-navy-800 dark:bg-dark-850 rounded-3xl p-8 md:p-14 text-center relative overflow-hidden">
+          <div className="bg-dark-850 rounded-3xl p-8 md:p-14 text-center relative overflow-hidden">
             {/* Decoration */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary-500/20 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent-cyan/20 rounded-full blur-3xl pointer-events-none" />
             
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6 relative z-10">Start improving your community today.</h2>
-            <p className="text-lg text-navy-200 dark:text-dark-300 mb-8 max-w-2xl mx-auto relative z-10">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-title mb-6 relative z-10">Start improving your community today.</h2>
+            <p className="text-lg text-dark-300 mb-8 max-w-2xl mx-auto relative z-10">
               Join thousands of active citizens. Report issues, propose solutions, and make a real difference in your neighborhood.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
@@ -266,20 +266,20 @@ const LandingPage = () => {
       </section>
 
       {/* ── Footer ─────────────────────────────────────────────────────── */}
-      <footer className="bg-white dark:bg-dark-950 border-t border-slate-200 dark:border-dark-800 py-12">
+      <footer className="bg-dark-950 border-t border-dark-800 py-12">
         <div className="container-app flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
               <MapPin size={16} className="text-white" />
             </div>
-            <span className="font-bold text-navy-800 dark:text-white text-lg tracking-tight">CivicConnect</span>
+            <span className="font-bold text-title text-lg tracking-tight">CivicConnect</span>
           </div>
           
-          <div className="text-sm text-navy-500 dark:text-dark-400 text-center md:text-left">
+          <div className="text-sm text-dark-400 text-center md:text-left">
             <p>© {new Date().getFullYear()} CivicConnect. Empowering Smart Communities.</p>
           </div>
           
-          <div className="flex items-center gap-4 text-sm text-navy-500 dark:text-dark-400">
+          <div className="flex items-center gap-4 text-sm text-dark-400">
             <Link to="#" className="hover:text-primary-600 transition-colors">Privacy</Link>
             <Link to="#" className="hover:text-primary-600 transition-colors">Terms</Link>
             <Link to="#" className="hover:text-primary-600 transition-colors">Contact</Link>

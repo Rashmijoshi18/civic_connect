@@ -6,42 +6,42 @@
 @layer base {
   :root {
     --color-surface-950: #f8fafc;
-    --color-surface-900: #f1f5f9;
-    --color-surface-850: #e2e8f0;
-    --color-surface-800: #cbd5e1;
-    --color-surface-750: #94a3b8;
-    --color-surface-700: #64748b;
-    --color-surface-650: #475569;
-    --color-surface-600: #334155;
-    --color-surface-500: #1e293b;
-    --color-surface-400: #0f172a;
-    --color-surface-300: #020617;
-    --color-surface-200: #000000;
-    --color-surface-100: #000000;
+    --color-surface-900: #ffffff;
+    --color-surface-850: #ffffff;
+    --color-surface-800: #ffffff;
+    --color-surface-750: #f1f5f9;
+    --color-surface-700: #f1f5f9;
+    --color-surface-650: #e2e8f0;
+    --color-surface-600: #cbd5e1;
+    --color-surface-500: #94a3b8;
+    --color-surface-400: #64748b;
+    --color-surface-300: #475569;
+    --color-surface-200: #1e293b;
+    --color-surface-100: #0f172a;
 
-    --color-text-main: #0f172a;
+    --color-text-main: #334155;
     --color-bg-main: #f8fafc;
-    --color-text-title: #020617;
+    --color-text-title: #0f172a;
   }
 
   .dark {
-    --color-surface-950: #0a0a0f;
-    --color-surface-900: #0d0d14;
-    --color-surface-850: #10111a;
-    --color-surface-800: #141520;
-    --color-surface-750: #181927;
-    --color-surface-700: #1c1d2e;
-    --color-surface-650: #212236;
-    --color-surface-600: #282a3e;
-    --color-surface-500: #343650;
-    --color-surface-400: #4a4d6a;
-    --color-surface-300: #6b6f8d;
-    --color-surface-200: #8e92b0;
-    --color-surface-100: #b4b8d4;
+    --color-surface-950: #0B1220;
+    --color-surface-900: #111827;
+    --color-surface-850: #172033;
+    --color-surface-800: #172033;
+    --color-surface-750: #1e293b;
+    --color-surface-700: #1e293b;
+    --color-surface-650: #334155;
+    --color-surface-600: #475569;
+    --color-surface-500: #64748b;
+    --color-surface-400: #94A3B8;
+    --color-surface-300: #cbd5e1;
+    --color-surface-200: #F8FAFC;
+    --color-surface-100: #ffffff;
 
-    --color-text-main: #b4b8d4;
-    --color-bg-main: #0a0a0f;
-    --color-text-title: #ffffff;
+    --color-text-main: #94A3B8;
+    --color-bg-main: #0B1220;
+    --color-text-title: #F8FAFC;
   }
 
   * { box-sizing: border-box; }

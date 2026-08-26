@@ -26,18 +26,20 @@ import AdminDashboard from './pages/AdminDashboard';
 import AdminProblemsPage from './pages/AdminProblemsPage';
 import AdminUsersPage from './pages/AdminUsersPage';
 import AdminSolutionsPage from './pages/AdminSolutionsPage';
+import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
   return (
-    <AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
       <BrowserRouter>
         <Toaster
           position="top-right"
           toastOptions={{
             duration: 3500,
-            style: { borderRadius: '10px', fontSize: '14px', fontWeight: '500', background: '#1c1d2e', color: '#b4b8d4', border: '1px solid #282a3e' },
-            success: { iconTheme: { primary: '#34d399', secondary: '#0d0d14' } },
-            error: { iconTheme: { primary: '#f87171', secondary: '#0d0d14' } },
+            style: { borderRadius: '10px', fontSize: '14px', fontWeight: '500', background: 'var(--color-surface-850)', color: 'var(--color-text-main)', border: '1px solid var(--color-surface-700)' },
+            success: { iconTheme: { primary: '#34d399', secondary: 'var(--color-surface-900)' } },
+            error: { iconTheme: { primary: '#f87171', secondary: 'var(--color-surface-900)' } },
           }}
         />
 
@@ -92,6 +94,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </AuthProvider>
+    </ThemeProvider>
   );
 }
 
