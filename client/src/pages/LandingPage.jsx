@@ -168,7 +168,7 @@ const LandingPage = () => {
       </section>
 
       {/* ── Stats Banner ───────────────────────────────────────────────── */}
-      <section ref={statsRef} className="py-16 bg-primary-600 dark:bg-primary-900/40 border-y border-primary-700 dark:border-primary-800/50 relative overflow-hidden">
+      <section ref={statsRef} className="py-16 bg-navy-700 dark:bg-dark-900 border-y border-navy-600 dark:border-dark-800 relative overflow-hidden">
         {/* Background elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute -top-24 -left-24 w-96 h-96 bg-white/20 rounded-full blur-3xl" />
@@ -176,7 +176,7 @@ const LandingPage = () => {
         </div>
         
         <div className="container-app relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 text-center divide-x-0 md:divide-x divide-primary-500/30 dark:divide-primary-800/50">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 text-center divide-x-0 md:divide-x divide-white/10 dark:divide-white/5">
             {[
               { value: problems, suffix: '+', label: 'Issues Reported' },
               { value: resolved, suffix: '+', label: 'Issues Resolved' },
@@ -187,7 +187,7 @@ const LandingPage = () => {
                 <p className="text-4xl md:text-5xl font-extrabold text-white mb-2 tracking-tight">
                   {value.toLocaleString()}{suffix}
                 </p>
-                <p className="text-sm md:text-base font-medium text-primary-100 dark:text-primary-200">
+                <p className="text-sm md:text-base font-medium text-white/70 dark:text-dark-300">
                   {label}
                 </p>
               </div>

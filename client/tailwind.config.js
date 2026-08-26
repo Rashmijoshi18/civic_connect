@@ -26,17 +26,17 @@ export default {
           100: 'var(--color-surface-100)',
         },
         primary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb', // Civic Blue
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
-          950: '#172554',
+          50: '#f3f3ff',
+          100: '#ebebff',
+          200: '#d8d8ff',
+          300: '#bcbafd',
+          400: '#a09bfb',
+          500: '#8f8af8',
+          600: '#7c75f5', // Lighter softer indigo
+          700: '#6258e6',
+          800: '#4d42cc',
+          900: '#3d33a0',
+          950: '#221d5c',
         },
         navy: {
           500: '#334155',
