@@ -57,7 +57,7 @@ const AdminProblemsPage = () => {
   return (
     <div className="flex min-h-[calc(100vh-64px)]">
       <Sidebar />
-      <main className="flex-1 bg-gray-50 py-8 px-4 lg:px-8">
+      <main className="flex-1 bg-dark-950 py-8 px-4 lg:px-8">
         <div className="mb-7">
           <h1 className="page-title">Manage Problems</h1>
           <p className="page-subtitle">{pagination.total} total problems</p>
@@ -66,7 +66,7 @@ const AdminProblemsPage = () => {
         {/* Controls */}
         <div className="flex flex-col sm:flex-row gap-3 mb-5">
           <div className="relative flex-1">
-            <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
+            <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-dark-400" />
             <input
               type="text" placeholder="Search problems..."
               value={search} onChange={e => { setSearch(e.target.value); setPage(1); }}
@@ -97,22 +97,22 @@ const AdminProblemsPage = () => {
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-gray-100 bg-gray-50">
+                  <tr className="border-b border-dark-700 bg-dark-850">
                     {['Problem', 'Reporter', 'Status', 'Severity', 'Priority', 'Actions', 'Date'].map(h => (
-                      <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-gray-400 uppercase tracking-wide whitespace-nowrap">{h}</th>
+                      <th key={h} className="px-4 py-3 text-left text-xs font-semibold text-dark-400 uppercase tracking-wide whitespace-nowrap">{h}</th>
                     ))}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-50">
+                <tbody className="divide-y divide-dark-700/50">
                   {problems.map(p => (
-                    <tr key={p.id} className="hover:bg-gray-50 transition-colors">
+                    <tr key={p.id} className="hover:bg-dark-800/50 transition-colors">
                       <td className="px-4 py-3.5 max-w-[200px]">
-                        <Link to={`/problems/${p.id}`} className="font-medium text-gray-900 hover:text-primary-600 line-clamp-2 text-xs">
+                        <Link to={`/problems/${p.id}`} className="font-medium text-white hover:text-primary-400 line-clamp-2 text-xs">
                           {p.title}
                         </Link>
-                        <p className="text-xs text-gray-400 mt-0.5">{CATEGORY_LABELS[p.category]} • {p.city}</p>
+                        <p className="text-xs text-dark-400 mt-0.5">{CATEGORY_LABELS[p.category]} • {p.city}</p>
                       </td>
-                      <td className="px-4 py-3.5 text-xs text-gray-500 whitespace-nowrap">{p.reporter?.name}</td>
+                      <td className="px-4 py-3.5 text-xs text-dark-300 whitespace-nowrap">{p.reporter?.name}</td>
                       <td className="px-4 py-3.5"><StatusBadge status={p.status} /></td>
                       <td className="px-4 py-3.5"><SeverityBadge severity={p.severity} /></td>
                       <td className="px-4 py-3.5"><PriorityBadge score={p.priorityScore} level={p.priorityLevel} /></td>
@@ -122,12 +122,12 @@ const AdminProblemsPage = () => {
                             <>
                               <button onClick={() => handleVerify(p.id, 'verify')}
                                 disabled={actionLoading[p.id]}
-                                className="flex items-center gap-1 px-2 py-1 text-xs bg-green-50 text-green-700 rounded-md hover:bg-green-100 transition-colors disabled:opacity-50">
+                                className="flex items-center gap-1 px-2 py-1 text-xs bg-emerald-500/15 text-emerald-400 rounded-md hover:bg-emerald-500/25 transition-colors disabled:opacity-50">
                                 <CheckCircle size={12} /> Verify
                               </button>
                               <button onClick={() => handleVerify(p.id, 'reject')}
                                 disabled={actionLoading[p.id]}
-                                className="flex items-center gap-1 px-2 py-1 text-xs bg-red-50 text-red-700 rounded-md hover:bg-red-100 transition-colors disabled:opacity-50">
+                                className="flex items-center gap-1 px-2 py-1 text-xs bg-red-500/15 text-red-400 rounded-md hover:bg-red-500/25 transition-colors disabled:opacity-50">
                                 <XCircle size={12} /> Reject
                               </button>
                             </>
@@ -136,7 +136,7 @@ const AdminProblemsPage = () => {
                             <select
                               onChange={e => { if (e.target.value) handleStatusChange(p.id, e.target.value); }}
                               disabled={actionLoading[p.id + '_status']}
-                              className="text-xs border border-gray-200 rounded-md px-1.5 py-1 text-gray-600 cursor-pointer hover:border-gray-300 disabled:opacity-50"
+                              className="text-xs border border-dark-600 bg-dark-800 rounded-md px-1.5 py-1 text-dark-200 cursor-pointer hover:border-dark-500 disabled:opacity-50"
                             >
                               <option value="">Change Status</option>
                               <option value="IN_PROGRESS">In Progress</option>
@@ -146,7 +146,7 @@ const AdminProblemsPage = () => {
                           )}
                         </div>
                       </td>
-                      <td className="px-4 py-3.5 text-xs text-gray-400 whitespace-nowrap">{formatRelativeTime(p.createdAt)}</td>
+                      <td className="px-4 py-3.5 text-xs text-dark-400 whitespace-nowrap">{formatRelativeTime(p.createdAt)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -160,7 +160,7 @@ const AdminProblemsPage = () => {
             <button onClick={() => setPage(p => p - 1)} disabled={page === 1} className="btn-secondary btn-sm disabled:opacity-40">
               <ChevronLeft size={16} />
             </button>
-            <span className="text-sm text-gray-600">Page {page} of {pagination.pages}</span>
+            <span className="text-sm text-dark-300">Page {page} of {pagination.pages}</span>
             <button onClick={() => setPage(p => p + 1)} disabled={page === pagination.pages} className="btn-secondary btn-sm disabled:opacity-40">
               <ChevronRight size={16} />
             </button>

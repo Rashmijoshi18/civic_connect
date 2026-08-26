@@ -37,26 +37,26 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-dark-950 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center group-hover:shadow-glow transition-all">
               <MapPin size={20} className="text-white" />
             </div>
-            <span className="text-2xl font-bold text-gray-900">Civic<span className="text-primary-600">Connect</span></span>
+            <span className="text-2xl font-bold text-white">Civic<span className="text-primary-400">Connect</span></span>
           </Link>
-          <h1 className="mt-6 text-2xl font-bold text-gray-900">Welcome back</h1>
-          <p className="mt-1 text-sm text-gray-500">Sign in to your account to continue</p>
+          <h1 className="mt-6 text-2xl font-bold text-white">Welcome back</h1>
+          <p className="mt-1 text-sm text-dark-300">Sign in to your account to continue</p>
         </div>
 
         {/* Card */}
         <div className="card card-body">
           {error && (
-            <div className="flex items-center gap-2.5 p-3.5 bg-red-50 border border-red-100 rounded-lg mb-5">
-              <AlertCircle size={16} className="text-red-500 flex-shrink-0" />
-              <p className="text-sm text-red-700">{error}</p>
+            <div className="flex items-center gap-2.5 p-3.5 bg-red-500/10 border border-red-500/20 rounded-lg mb-5">
+              <AlertCircle size={16} className="text-red-400 flex-shrink-0" />
+              <p className="text-sm text-red-400">{error}</p>
             </div>
           )}
 
@@ -82,7 +82,7 @@ const LoginPage = () => {
                   className="form-input pr-10" autoComplete="current-password"
                 />
                 <button type="button" onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-dark-400 hover:text-dark-200">
                   {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                 </button>
               </div>
@@ -96,9 +96,9 @@ const LoginPage = () => {
           </form>
 
           {/* Demo credentials */}
-          <div className="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-100">
-            <p className="text-xs font-semibold text-blue-700 mb-1.5">Demo Credentials</p>
-            <div className="space-y-1 text-xs text-blue-600">
+          <div className="mt-4 p-3 bg-primary-500/10 rounded-lg border border-primary-500/20">
+            <p className="text-xs font-semibold text-primary-400 mb-1.5">Demo Credentials</p>
+            <div className="space-y-1 text-xs text-primary-300">
               <p><span className="font-medium">Admin:</span> admin@civicconnect.com / Admin@123</p>
               <p><span className="font-medium">User:</span> arjun@example.com / User@123</p>
               <p><span className="font-medium">Org:</span> puda@example.com / User@123</p>
@@ -106,9 +106,9 @@ const LoginPage = () => {
           </div>
         </div>
 
-        <p className="mt-4 text-center text-sm text-gray-500">
+        <p className="mt-4 text-center text-sm text-dark-300">
           Don't have an account?{' '}
-          <Link to="/register" className="text-primary-600 font-medium hover:underline">Create one</Link>
+          <Link to="/register" className="text-primary-400 font-medium hover:underline">Create one</Link>
         </p>
       </div>
     </div>

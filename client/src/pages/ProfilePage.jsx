@@ -32,12 +32,12 @@ const ProfilePage = () => {
     }
   };
 
-  const roleColors = { USER: 'bg-blue-100 text-blue-700', ORGANIZATION: 'bg-purple-100 text-purple-700', ADMIN: 'bg-red-100 text-red-700' };
+  const roleColors = { USER: 'bg-blue-500/15 text-blue-400', ORGANIZATION: 'bg-purple-500/15 text-purple-400', ADMIN: 'bg-red-500/15 text-red-400' };
 
   return (
     <div className="flex min-h-[calc(100vh-64px)]">
       <Sidebar />
-      <main className="flex-1 bg-gray-50 py-8 px-4 lg:px-8">
+      <main className="flex-1 bg-dark-950 py-8 px-4 lg:px-8">
         <div className="max-w-2xl mx-auto space-y-5">
           <h1 className="page-title">My Profile</h1>
 
@@ -45,7 +45,7 @@ const ProfilePage = () => {
           <div className="card card-body">
             <div className="flex items-start gap-5">
               {/* Avatar */}
-              <div className="w-20 h-20 rounded-2xl bg-primary-100 text-primary-700 flex items-center justify-center text-2xl font-bold flex-shrink-0">
+              <div className="w-20 h-20 rounded-2xl bg-primary-500/20 text-primary-400 flex items-center justify-center text-2xl font-bold flex-shrink-0 ring-2 ring-primary-500/30">
                 {getInitials(user?.name)}
               </div>
 
@@ -68,16 +68,16 @@ const ProfilePage = () => {
                     </>
                   ) : (
                     <>
-                      <h2 className="text-xl font-bold text-gray-900">{user?.name}</h2>
+                      <h2 className="text-xl font-bold text-white">{user?.name}</h2>
                       <button onClick={() => setEditing(true)}
-                        className="p-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">
+                        className="p-1.5 text-dark-400 hover:text-white hover:bg-dark-700 rounded-lg transition-colors">
                         <Edit2 size={14} />
                       </button>
                     </>
                   )}
                 </div>
 
-                <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500">
+                <div className="flex flex-wrap items-center gap-3 text-sm text-dark-300">
                   <span className="flex items-center gap-1.5"><Mail size={14} />{user?.email}</span>
                   <span className="flex items-center gap-1.5"><Calendar size={14} />Joined {formatDate(user?.createdAt)}</span>
                 </div>
@@ -94,7 +94,7 @@ const ProfilePage = () => {
           {/* Stats */}
           {stats && (
             <div className="card card-body">
-              <h3 className="text-sm font-semibold text-gray-900 mb-4">Contribution Stats</h3>
+              <h3 className="text-sm font-semibold text-white mb-4">Contribution Stats</h3>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {[
                   { label: 'Problems Reported', value: stats.totalReported },
@@ -102,9 +102,9 @@ const ProfilePage = () => {
                   { label: 'Votes Received', value: stats.totalVotesReceived },
                   { label: 'Resolved', value: stats.resolvedProblems },
                 ].map(({ label, value }) => (
-                  <div key={label} className="text-center p-3 bg-gray-50 rounded-xl">
-                    <p className="text-2xl font-bold text-gray-900">{value}</p>
-                    <p className="text-xs text-gray-500 mt-0.5">{label}</p>
+                  <div key={label} className="text-center p-3 bg-dark-850 rounded-xl border border-dark-700">
+                    <p className="text-2xl font-bold text-white">{value}</p>
+                    <p className="text-xs text-dark-300 mt-0.5">{label}</p>
                   </div>
                 ))}
               </div>
@@ -113,7 +113,7 @@ const ProfilePage = () => {
 
           {/* Account info */}
           <div className="card card-body">
-            <h3 className="text-sm font-semibold text-gray-900 mb-4">Account Information</h3>
+            <h3 className="text-sm font-semibold text-white mb-4">Account Information</h3>
             <dl className="space-y-3 text-sm">
               {[
                 { label: 'Full Name', value: user?.name },
@@ -122,9 +122,9 @@ const ProfilePage = () => {
                 { label: 'Account Status', value: user?.isActive ? 'Active' : 'Inactive' },
                 { label: 'Member Since', value: formatDate(user?.createdAt) },
               ].map(({ label, value }) => (
-                <div key={label} className="flex items-center justify-between py-2 border-b border-gray-50 last:border-0">
-                  <dt className="text-gray-500">{label}</dt>
-                  <dd className="font-medium text-gray-900">{value}</dd>
+                <div key={label} className="flex items-center justify-between py-2 border-b border-dark-700/50 last:border-0">
+                  <dt className="text-dark-300">{label}</dt>
+                  <dd className="font-medium text-white">{value}</dd>
                 </div>
               ))}
             </dl>

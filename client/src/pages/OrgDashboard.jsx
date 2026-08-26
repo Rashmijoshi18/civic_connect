@@ -12,12 +12,12 @@ import toast from 'react-hot-toast';
 const StatCard = ({ label, value, icon: Icon, color }) => (
   <div className="card card-body">
     <div className="flex items-center justify-between mb-3">
-      <p className="text-sm text-gray-500">{label}</p>
+      <p className="text-sm text-dark-300">{label}</p>
       <div className={`w-9 h-9 rounded-lg flex items-center justify-center ${color}`}>
         <Icon size={17} />
       </div>
     </div>
-    <p className="text-2xl font-bold text-gray-900">{value ?? '—'}</p>
+    <p className="text-2xl font-bold text-white">{value ?? '—'}</p>
   </div>
 );
 
@@ -35,7 +35,7 @@ const OrgDashboard = () => {
   return (
     <div className="flex min-h-[calc(100vh-64px)]">
       <Sidebar />
-      <main className="flex-1 bg-gray-50 py-8 px-4 lg:px-8">
+      <main className="flex-1 bg-dark-950 py-8 px-4 lg:px-8">
         <div className="mb-7">
           <h1 className="page-title">Organization Dashboard</h1>
           <p className="page-subtitle">Track your solution proposals and community impact.</p>
@@ -47,19 +47,19 @@ const OrgDashboard = () => {
             Array.from({ length: 4 }).map((_, i) => <StatCardSkeleton key={i} />)
           ) : (
             <>
-              <StatCard label="Total Proposals" value={data?.stats?.totalSolutions} icon={Lightbulb} color="bg-blue-50 text-blue-600" />
-              <StatCard label="Approved" value={data?.stats?.approvedSolutions} icon={CheckCircle} color="bg-green-50 text-green-600" />
-              <StatCard label="Pending Review" value={data?.stats?.pendingSolutions} icon={Clock} color="bg-amber-50 text-amber-600" />
-              <StatCard label="Rejected" value={data?.stats?.rejectedSolutions} icon={XCircle} color="bg-red-50 text-red-600" />
+              <StatCard label="Total Proposals" value={data?.stats?.totalSolutions} icon={Lightbulb} color="bg-blue-500/15 text-blue-400" />
+              <StatCard label="Approved" value={data?.stats?.approvedSolutions} icon={CheckCircle} color="bg-emerald-500/15 text-emerald-400" />
+              <StatCard label="Pending Review" value={data?.stats?.pendingSolutions} icon={Clock} color="bg-amber-500/15 text-amber-400" />
+              <StatCard label="Rejected" value={data?.stats?.rejectedSolutions} icon={XCircle} color="bg-red-500/15 text-red-400" />
             </>
           )}
         </div>
 
         {/* Recent Proposals */}
         <div className="card">
-          <div className="flex items-center justify-between px-5 py-4 border-b border-gray-50">
-            <h2 className="font-semibold text-gray-900">My Proposals</h2>
-            <Link to="/problems" className="text-sm text-primary-600 hover:underline">Browse Problems</Link>
+          <div className="flex items-center justify-between px-5 py-4 border-b border-dark-700">
+            <h2 className="font-semibold text-white">My Proposals</h2>
+            <Link to="/problems" className="text-sm text-primary-400 hover:underline">Browse Problems</Link>
           </div>
 
           {loading ? (
@@ -79,31 +79,31 @@ const OrgDashboard = () => {
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-gray-50">
+                  <tr className="border-b border-dark-700">
                     {['Solution', 'Problem', 'Status', 'Votes', 'Submitted'].map(h => (
-                      <th key={h} className="px-5 py-3 text-left text-xs font-semibold text-gray-400 uppercase tracking-wide">{h}</th>
+                      <th key={h} className="px-5 py-3 text-left text-xs font-semibold text-dark-400 uppercase tracking-wide">{h}</th>
                     ))}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-50">
+                <tbody className="divide-y divide-dark-700/50">
                   {data.recentSolutions.map(s => (
-                    <tr key={s.id} className="hover:bg-gray-50 transition-colors">
+                    <tr key={s.id} className="hover:bg-dark-800/50 transition-colors">
                       <td className="px-5 py-3.5">
-                        <p className="font-medium text-gray-900 line-clamp-1">{s.title}</p>
-                        <p className="text-xs text-gray-400 line-clamp-1">{s.expectedImpact}</p>
+                        <p className="font-medium text-white line-clamp-1">{s.title}</p>
+                        <p className="text-xs text-dark-400 line-clamp-1">{s.expectedImpact}</p>
                       </td>
                       <td className="px-5 py-3.5">
-                        <Link to={`/problems/${s.problem?.id}`} className="text-primary-600 hover:underline line-clamp-1 max-w-[160px] block">
+                        <Link to={`/problems/${s.problem?.id}`} className="text-primary-400 hover:underline line-clamp-1 max-w-[160px] block">
                           {s.problem?.title}
                         </Link>
                       </td>
                       <td className="px-5 py-3.5"><SolutionStatusBadge status={s.status} /></td>
                       <td className="px-5 py-3.5">
-                        <span className="flex items-center gap-1 text-gray-600">
-                          <ThumbsUp size={12} className="text-gray-400" /> {s._count?.votes || 0}
+                        <span className="flex items-center gap-1 text-dark-200">
+                          <ThumbsUp size={12} className="text-dark-400" /> {s._count?.votes || 0}
                         </span>
                       </td>
-                      <td className="px-5 py-3.5 text-gray-400 whitespace-nowrap">{formatRelativeTime(s.createdAt)}</td>
+                      <td className="px-5 py-3.5 text-dark-400 whitespace-nowrap">{formatRelativeTime(s.createdAt)}</td>
                     </tr>
                   ))}
                 </tbody>

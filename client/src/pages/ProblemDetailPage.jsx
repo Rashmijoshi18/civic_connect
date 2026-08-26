@@ -70,7 +70,7 @@ const ProblemDetailPage = () => {
 
   if (!problem) return (
     <div className="container-app py-20 text-center">
-      <p className="text-gray-500">Problem not found.</p>
+      <p className="text-dark-300">Problem not found.</p>
       <Link to="/problems" className="btn-primary mt-4 inline-flex">Back to Explore</Link>
     </div>
   );
@@ -78,10 +78,10 @@ const ProblemDetailPage = () => {
   const canPropose = isAuthenticated && !['PENDING', 'REJECTED', 'RESOLVED'].includes(problem.status);
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-dark-950 py-8">
       <div className="container-app">
         {/* Back */}
-        <Link to="/problems" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 mb-6 transition-colors">
+        <Link to="/problems" className="inline-flex items-center gap-2 text-sm text-dark-300 hover:text-white mb-6 transition-colors">
           <ArrowLeft size={15} /> Back to Explore
         </Link>
 
@@ -92,7 +92,7 @@ const ProblemDetailPage = () => {
             <div className="card card-body">
               <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-xs font-medium text-primary-600 bg-primary-50 px-2.5 py-1 rounded-full">
+                  <span className="text-xs font-medium text-primary-400 bg-primary-500/10 px-2.5 py-1 rounded-full">
                     {CATEGORY_LABELS[problem.category]}
                   </span>
                   <StatusBadge status={problem.status} />
@@ -101,15 +101,15 @@ const ProblemDetailPage = () => {
                 <PriorityBadge score={problem.priorityScore} level={problem.priorityLevel} />
               </div>
 
-              <h1 className="text-2xl font-bold text-gray-900 mb-3">{problem.title}</h1>
+              <h1 className="text-2xl font-bold text-white mb-3">{problem.title}</h1>
 
-              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-4">
+              <div className="flex flex-wrap items-center gap-4 text-sm text-dark-300 mb-4">
                 <span className="flex items-center gap-1.5"><MapPin size={14} />{problem.location}, {problem.city}</span>
                 <span className="flex items-center gap-1.5"><User size={14} />{problem.reporter?.name}</span>
                 <span className="flex items-center gap-1.5"><Calendar size={14} />{formatDate(problem.createdAt)}</span>
               </div>
 
-              <p className="text-gray-700 leading-relaxed">{problem.description}</p>
+              <p className="text-dark-200 leading-relaxed">{problem.description}</p>
 
               {/* Image */}
               {problem.imageUrl && (
@@ -122,8 +122,8 @@ const ProblemDetailPage = () => {
             {/* Solutions section */}
             <div className="card card-body">
               <div className="flex items-center justify-between mb-5">
-                <h2 className="text-lg font-bold text-gray-900">
-                  Proposed Solutions <span className="text-gray-400 font-normal text-base">({solutions.length})</span>
+                <h2 className="text-lg font-bold text-white">
+                  Proposed Solutions <span className="text-dark-400 font-normal text-base">({solutions.length})</span>
                 </h2>
                 {canPropose && (
                   <button onClick={() => setShowForm(!showForm)}
@@ -135,8 +135,8 @@ const ProblemDetailPage = () => {
 
               {/* Solution form */}
               {showForm && (
-                <form onSubmit={handleSolutionSubmit} className="mb-6 p-4 bg-gray-50 rounded-xl border border-gray-200 space-y-3 animate-slide-up">
-                  <h3 className="text-sm font-semibold text-gray-900">Submit Your Solution</h3>
+                <form onSubmit={handleSolutionSubmit} className="mb-6 p-4 bg-dark-850 rounded-xl border border-dark-700 space-y-3 animate-slide-up">
+                  <h3 className="text-sm font-semibold text-white">Submit Your Solution</h3>
                   <div>
                     <label className="form-label">Solution Title *</label>
                     <input className="form-input" placeholder="Brief title for your solution"
@@ -174,7 +174,7 @@ const ProblemDetailPage = () => {
               )}
 
               {!canPropose && !isAuthenticated && (
-                <div className="mb-4 p-3 bg-blue-50 rounded-lg text-sm text-blue-700">
+                <div className="mb-4 p-3 bg-primary-500/10 rounded-lg text-sm text-primary-300 border border-primary-500/20">
                   <Link to="/login" className="font-medium hover:underline">Sign in</Link> to propose a solution.
                 </div>
               )}
@@ -194,7 +194,7 @@ const ProblemDetailPage = () => {
           <div className="space-y-5">
             {/* Stats */}
             <div className="card card-body">
-              <h3 className="text-sm font-semibold text-gray-900 mb-4">Problem Details</h3>
+              <h3 className="text-sm font-semibold text-white mb-4">Problem Details</h3>
               <dl className="space-y-3 text-sm">
                 {[
                   { label: 'Priority Score', value: <PriorityBadge score={problem.priorityScore} level={problem.priorityLevel} /> },
@@ -206,8 +206,8 @@ const ProblemDetailPage = () => {
                   { label: 'Last Updated', value: formatDate(problem.updatedAt) },
                 ].map(({ label, value }) => (
                   <div key={label} className="flex items-center justify-between gap-2">
-                    <dt className="text-gray-500">{label}</dt>
-                    <dd className="text-gray-900 font-medium text-right">{value}</dd>
+                    <dt className="text-dark-300">{label}</dt>
+                    <dd className="text-white font-medium text-right">{value}</dd>
                   </div>
                 ))}
               </dl>
@@ -215,7 +215,7 @@ const ProblemDetailPage = () => {
 
             {/* Timeline */}
             <div className="card card-body">
-              <h3 className="text-sm font-semibold text-gray-900 mb-4">Problem Timeline</h3>
+              <h3 className="text-sm font-semibold text-white mb-4">Problem Timeline</h3>
               <ProblemTimeline status={problem.status} statusHistory={problem.statusHistory} />
             </div>
           </div>

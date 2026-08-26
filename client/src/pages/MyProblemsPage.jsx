@@ -30,7 +30,7 @@ const MyProblemsPage = () => {
   return (
     <div className="flex min-h-[calc(100vh-64px)]">
       <Sidebar />
-      <main className="flex-1 bg-gray-50 py-8 px-4 lg:px-8">
+      <main className="flex-1 bg-dark-950 py-8 px-4 lg:px-8">
         <div className="flex items-center justify-between mb-7">
           <div>
             <h1 className="page-title">My Problems</h1>
@@ -60,24 +60,24 @@ const MyProblemsPage = () => {
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-gray-50">
+                  <tr className="border-b border-dark-700">
                     {['Problem', 'Category', 'Location', 'Status', 'Severity', 'Proposals', 'Date'].map(h => (
-                      <th key={h} className="px-5 py-3 text-left text-xs font-semibold text-gray-400 uppercase tracking-wide">{h}</th>
+                      <th key={h} className="px-5 py-3 text-left text-xs font-semibold text-dark-400 uppercase tracking-wide">{h}</th>
                     ))}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-50">
+                <tbody className="divide-y divide-dark-700/50">
                   {problems.map(p => (
-                    <tr key={p.id} className="hover:bg-gray-50 transition-colors">
+                    <tr key={p.id} className="hover:bg-dark-800/50 transition-colors">
                       <td className="px-5 py-3.5 max-w-[200px]">
-                        <Link to={`/problems/${p.id}`} className="font-medium text-gray-900 hover:text-primary-600 line-clamp-1">{p.title}</Link>
+                        <Link to={`/problems/${p.id}`} className="font-medium text-white hover:text-primary-400 line-clamp-1">{p.title}</Link>
                       </td>
-                      <td className="px-5 py-3.5 text-gray-500 whitespace-nowrap">{CATEGORY_LABELS[p.category]}</td>
-                      <td className="px-5 py-3.5 text-gray-500 whitespace-nowrap">{p.city}</td>
+                      <td className="px-5 py-3.5 text-dark-300 whitespace-nowrap">{CATEGORY_LABELS[p.category]}</td>
+                      <td className="px-5 py-3.5 text-dark-300 whitespace-nowrap">{p.city}</td>
                       <td className="px-5 py-3.5"><StatusBadge status={p.status} /></td>
                       <td className="px-5 py-3.5"><SeverityBadge severity={p.severity} /></td>
-                      <td className="px-5 py-3.5 text-center text-gray-600">{p._count?.solutions || 0}</td>
-                      <td className="px-5 py-3.5 text-gray-400 whitespace-nowrap">{formatRelativeTime(p.createdAt)}</td>
+                      <td className="px-5 py-3.5 text-center text-dark-200">{p._count?.solutions || 0}</td>
+                      <td className="px-5 py-3.5 text-dark-400 whitespace-nowrap">{formatRelativeTime(p.createdAt)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -91,7 +91,7 @@ const MyProblemsPage = () => {
             <button onClick={() => setPage(p => p - 1)} disabled={page === 1} className="btn-secondary btn-sm disabled:opacity-40">
               <ChevronLeft size={16} />
             </button>
-            <span className="text-sm text-gray-600">Page {page} of {pagination.pages}</span>
+            <span className="text-sm text-dark-300">Page {page} of {pagination.pages}</span>
             <button onClick={() => setPage(p => p + 1)} disabled={page === pagination.pages} className="btn-secondary btn-sm disabled:opacity-40">
               <ChevronRight size={16} />
             </button>

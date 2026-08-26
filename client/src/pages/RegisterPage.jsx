@@ -44,17 +44,17 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-dark-950 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center">
               <MapPin size={20} className="text-white" />
             </div>
-            <span className="text-2xl font-bold text-gray-900">Civic<span className="text-primary-600">Connect</span></span>
+            <span className="text-2xl font-bold text-white">Civic<span className="text-primary-400">Connect</span></span>
           </Link>
-          <h1 className="mt-6 text-2xl font-bold text-gray-900">Create your account</h1>
-          <p className="mt-1 text-sm text-gray-500">Join the community making India better</p>
+          <h1 className="mt-6 text-2xl font-bold text-white">Create your account</h1>
+          <p className="mt-1 text-sm text-dark-300">Join the community making India better</p>
         </div>
 
         <div className="card card-body">
@@ -72,14 +72,14 @@ const RegisterPage = () => {
                     onClick={() => setForm(f => ({ ...f, role: value }))}
                     className={`flex items-center gap-2.5 p-3 rounded-lg border-2 text-left transition-all ${
                       form.role === value
-                        ? 'border-primary-600 bg-primary-50'
-                        : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-primary-500 bg-primary-500/10'
+                        : 'border-dark-600 hover:border-dark-500'
                     }`}
                   >
-                    <Icon size={18} className={form.role === value ? 'text-primary-600' : 'text-gray-400'} />
+                    <Icon size={18} className={form.role === value ? 'text-primary-400' : 'text-dark-400'} />
                     <div>
-                      <p className={`text-sm font-semibold ${form.role === value ? 'text-primary-700' : 'text-gray-700'}`}>{label}</p>
-                      <p className="text-xs text-gray-400">{desc}</p>
+                      <p className={`text-sm font-semibold ${form.role === value ? 'text-primary-400' : 'text-dark-100'}`}>{label}</p>
+                      <p className="text-xs text-dark-400">{desc}</p>
                     </div>
                   </button>
                 ))}
@@ -110,7 +110,7 @@ const RegisterPage = () => {
                   value={form.password} onChange={handleChange}
                   placeholder="Min. 6 characters" className="form-input pr-10" />
                 <button type="button" onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-dark-400">
                   {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                 </button>
               </div>
@@ -137,9 +137,9 @@ const RegisterPage = () => {
           </form>
         </div>
 
-        <p className="mt-4 text-center text-sm text-gray-500">
+        <p className="mt-4 text-center text-sm text-dark-300">
           Already have an account?{' '}
-          <Link to="/login" className="text-primary-600 font-medium hover:underline">Sign in</Link>
+          <Link to="/login" className="text-primary-400 font-medium hover:underline">Sign in</Link>
         </p>
       </div>
     </div>

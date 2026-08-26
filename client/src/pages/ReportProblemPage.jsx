@@ -8,7 +8,7 @@ import Sidebar from '../components/Sidebar';
 import toast from 'react-hot-toast';
 
 const SEVERITIES = ['LOW', 'MEDIUM', 'HIGH', 'CRITICAL'];
-const SEVERITY_COLORS = { LOW: 'text-gray-600', MEDIUM: 'text-yellow-700', HIGH: 'text-orange-700', CRITICAL: 'text-red-700' };
+const SEVERITY_COLORS = { LOW: 'text-dark-300', MEDIUM: 'text-yellow-400', HIGH: 'text-orange-400', CRITICAL: 'text-red-400' };
 
 const ReportProblemPage = () => {
   const navigate = useNavigate();
@@ -76,17 +76,17 @@ const ReportProblemPage = () => {
       <Sidebar />
       <main className="flex-1 flex items-center justify-center p-8">
         <div className="text-center max-w-md">
-          <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <CheckCircle2 size={40} className="text-green-600" />
+          <div className="w-20 h-20 bg-emerald-500/15 rounded-full flex items-center justify-center mx-auto mb-4">
+            <CheckCircle2 size={40} className="text-emerald-400" />
           </div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-3">Problem Submitted!</h2>
-          <p className="text-gray-500 mb-2">
+          <h2 className="text-2xl font-bold text-white mb-3">Problem Submitted!</h2>
+          <p className="text-dark-300 mb-2">
             Your problem has been submitted successfully and is now pending review.
           </p>
-          <p className="text-sm text-primary-600 font-medium">
+          <p className="text-sm text-primary-400 font-medium">
             It will appear publicly after verification by our admin team.
           </p>
-          <p className="text-xs text-gray-400 mt-4">Redirecting to your problems...</p>
+          <p className="text-xs text-dark-400 mt-4">Redirecting to your problems...</p>
         </div>
       </main>
     </div>
@@ -95,7 +95,7 @@ const ReportProblemPage = () => {
   return (
     <div className="flex min-h-[calc(100vh-64px)]">
       <Sidebar />
-      <main className="flex-1 bg-gray-50 py-8 px-4 lg:px-8">
+      <main className="flex-1 bg-dark-950 py-8 px-4 lg:px-8">
         <div className="max-w-2xl mx-auto">
           <div className="page-header">
             <h1 className="page-title">Report a Problem</h1>
@@ -131,7 +131,7 @@ const ReportProblemPage = () => {
                 <textarea name="description" rows={5} value={form.description} onChange={handleChange}
                   placeholder="Describe the problem in detail. Include when it started, how it affects people, etc."
                   className="form-input resize-none" maxLength={2000} />
-                <p className="text-xs text-gray-400 mt-1">{form.description.length}/2000 characters (min 20)</p>
+                <p className="text-xs text-dark-400 mt-1">{form.description.length}/2000 characters (min 20)</p>
                 {errors.description && <p className="form-error">{errors.description}</p>}
               </div>
 
@@ -160,8 +160,8 @@ const ReportProblemPage = () => {
                       onClick={() => setForm(f => ({ ...f, severity: s }))}
                       className={`py-2.5 rounded-lg text-xs font-semibold border-2 transition-all ${
                         form.severity === s
-                          ? `border-current ${SEVERITY_COLORS[s]} bg-opacity-10 ${s === 'LOW' ? 'bg-gray-50' : s === 'MEDIUM' ? 'bg-yellow-50' : s === 'HIGH' ? 'bg-orange-50' : 'bg-red-50'}`
-                          : 'border-gray-200 text-gray-400 hover:border-gray-300'
+                          ? `border-current ${SEVERITY_COLORS[s]} ${s === 'LOW' ? 'bg-dark-700' : s === 'MEDIUM' ? 'bg-yellow-500/10' : s === 'HIGH' ? 'bg-orange-500/10' : 'bg-red-500/10'}`
+                          : 'border-dark-600 text-dark-400 hover:border-dark-500'
                       }`}>
                       {s}
                     </button>
@@ -174,23 +174,23 @@ const ReportProblemPage = () => {
                 <label className="form-label">Photo (optional)</label>
                 <div
                   onClick={() => fileRef.current?.click()}
-                  className="border-2 border-dashed border-gray-200 rounded-xl p-6 text-center cursor-pointer hover:border-primary-300 hover:bg-primary-50/30 transition-all"
+                  className="border-2 border-dashed border-dark-600 rounded-xl p-6 text-center cursor-pointer hover:border-primary-500/50 hover:bg-primary-500/5 transition-all"
                 >
                   {imagePreview ? (
                     <div className="relative">
                       <img src={imagePreview} alt="Preview" className="max-h-48 rounded-lg mx-auto object-contain" />
                       <button type="button"
                         onClick={e => { e.stopPropagation(); setImage(null); setImagePreview(null); }}
-                        className="absolute top-2 right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600">
+                        className="absolute top-2 right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-400">
                         <X size={12} />
                       </button>
-                      <p className="text-xs text-gray-400 mt-2">{image?.name}</p>
+                      <p className="text-xs text-dark-400 mt-2">{image?.name}</p>
                     </div>
                   ) : (
                     <>
-                      <Upload size={24} className="mx-auto text-gray-300 mb-2" />
-                      <p className="text-sm text-gray-500">Click to upload a photo</p>
-                      <p className="text-xs text-gray-400 mt-1">JPEG, PNG, WebP — max 5MB</p>
+                      <Upload size={24} className="mx-auto text-dark-400 mb-2" />
+                      <p className="text-sm text-dark-300">Click to upload a photo</p>
+                      <p className="text-xs text-dark-400 mt-1">JPEG, PNG, WebP — max 5MB</p>
                     </>
                   )}
                   <input ref={fileRef} type="file" accept="image/*" onChange={handleImage} className="hidden" />
@@ -198,9 +198,9 @@ const ReportProblemPage = () => {
               </div>
 
               {/* Info banner */}
-              <div className="flex items-start gap-2.5 p-3.5 bg-blue-50 rounded-lg border border-blue-100">
-                <AlertCircle size={16} className="text-blue-500 flex-shrink-0 mt-0.5" />
-                <p className="text-xs text-blue-700">
+              <div className="flex items-start gap-2.5 p-3.5 bg-primary-500/10 rounded-lg border border-primary-500/20">
+                <AlertCircle size={16} className="text-primary-400 flex-shrink-0 mt-0.5" />
+                <p className="text-xs text-primary-300">
                   Your problem will be reviewed by an admin before appearing publicly. You'll be able to track its status in My Problems.
                 </p>
               </div>

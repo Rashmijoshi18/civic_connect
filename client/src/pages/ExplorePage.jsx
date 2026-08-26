@@ -68,7 +68,7 @@ const ExplorePage = () => {
   const activeFilterCount = [filters.category, filters.status, filters.severity].filter(Boolean).length;
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-dark-950 py-8">
       <div className="container-app">
         {/* Header */}
         <div className="mb-8">
@@ -79,7 +79,7 @@ const ExplorePage = () => {
         {/* Search + controls */}
         <div className="flex flex-col sm:flex-row gap-3 mb-5">
           <div className="relative flex-1">
-            <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" />
+            <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-dark-400" />
             <input
               type="text"
               placeholder="Search problems by title, description, or city..."
@@ -97,7 +97,7 @@ const ExplorePage = () => {
               {SORT_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
             </select>
             <button onClick={() => setShowFilters(!showFilters)}
-              className={`btn-secondary gap-2 ${activeFilterCount > 0 ? 'border-primary-300 text-primary-700' : ''}`}>
+              className={`btn-secondary gap-2 ${activeFilterCount > 0 ? 'border-primary-500/50 text-primary-400' : ''}`}>
               <SlidersHorizontal size={15} />
               Filters
               {activeFilterCount > 0 && (
@@ -111,9 +111,9 @@ const ExplorePage = () => {
         {showFilters && (
           <div className="card card-body mb-5 animate-slide-up">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-sm font-semibold text-gray-900">Filters</h3>
+              <h3 className="text-sm font-semibold text-white">Filters</h3>
               {activeFilterCount > 0 && (
-                <button onClick={clearFilters} className="text-xs text-red-600 hover:underline flex items-center gap-1">
+                <button onClick={clearFilters} className="text-xs text-red-400 hover:underline flex items-center gap-1">
                   <X size={12} /> Clear all
                 </button>
               )}
@@ -121,12 +121,12 @@ const ExplorePage = () => {
             <div className="space-y-4">
               {/* Category */}
               <div>
-                <p className="text-xs font-medium text-gray-500 mb-2">Category</p>
+                <p className="text-xs font-medium text-dark-300 mb-2">Category</p>
                 <div className="flex flex-wrap gap-2">
                   {CATEGORIES.map(c => (
                     <button key={c} onClick={() => setFilter('category', c)}
                       className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-all ${
-                        filters.category === c ? 'bg-primary-600 text-white border-primary-600' : 'bg-white text-gray-600 border-gray-200 hover:border-gray-300'
+                        filters.category === c ? 'bg-primary-600 text-white border-primary-600' : 'bg-dark-800 text-dark-200 border-dark-600 hover:border-dark-500'
                       }`}>
                       {CATEGORY_LABELS[c]}
                     </button>
@@ -135,12 +135,12 @@ const ExplorePage = () => {
               </div>
               {/* Status */}
               <div>
-                <p className="text-xs font-medium text-gray-500 mb-2">Status</p>
+                <p className="text-xs font-medium text-dark-300 mb-2">Status</p>
                 <div className="flex flex-wrap gap-2">
                   {STATUSES.map(s => (
                     <button key={s} onClick={() => setFilter('status', s)}
                       className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-all ${
-                        filters.status === s ? 'bg-primary-600 text-white border-primary-600' : 'bg-white text-gray-600 border-gray-200 hover:border-gray-300'
+                        filters.status === s ? 'bg-primary-600 text-white border-primary-600' : 'bg-dark-800 text-dark-200 border-dark-600 hover:border-dark-500'
                       }`}>
                       {s.replace('_', ' ')}
                     </button>
@@ -149,12 +149,12 @@ const ExplorePage = () => {
               </div>
               {/* Severity */}
               <div>
-                <p className="text-xs font-medium text-gray-500 mb-2">Severity</p>
+                <p className="text-xs font-medium text-dark-300 mb-2">Severity</p>
                 <div className="flex flex-wrap gap-2">
                   {SEVERITIES.map(s => (
                     <button key={s} onClick={() => setFilter('severity', s)}
                       className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-all ${
-                        filters.severity === s ? 'bg-primary-600 text-white border-primary-600' : 'bg-white text-gray-600 border-gray-200 hover:border-gray-300'
+                        filters.severity === s ? 'bg-primary-600 text-white border-primary-600' : 'bg-dark-800 text-dark-200 border-dark-600 hover:border-dark-500'
                       }`}>
                       {s}
                     </button>
@@ -167,7 +167,7 @@ const ExplorePage = () => {
 
         {/* Results count */}
         {!loading && (
-          <p className="text-sm text-gray-500 mb-4">
+          <p className="text-sm text-dark-300 mb-4">
             {pagination.total} problem{pagination.total !== 1 ? 's' : ''} found
           </p>
         )}
@@ -196,7 +196,7 @@ const ExplorePage = () => {
             <button onClick={() => setPage(p => p - 1)} disabled={page === 1} className="btn-secondary btn-sm disabled:opacity-40">
               <ChevronLeft size={16} />
             </button>
-            <span className="text-sm text-gray-600">Page {page} of {pagination.pages}</span>
+            <span className="text-sm text-dark-300">Page {page} of {pagination.pages}</span>
             <button onClick={() => setPage(p => p + 1)} disabled={page === pagination.pages} className="btn-secondary btn-sm disabled:opacity-40">
               <ChevronRight size={16} />
             </button>
