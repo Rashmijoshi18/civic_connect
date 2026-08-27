@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "buildCommand": "npm install && npx prisma generate",
   "builds": [
     {
       "src": "server.js",
@@ -7,17 +8,6 @@
     }
   ],
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "server.js"
-    },
-    {
-      "src": "/uploads/(.*)",
-      "dest": "server.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "server.js"
-    }
+    { "src": "/(.*)", "dest": "server.js" }
   ]
 }
