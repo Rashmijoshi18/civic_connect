@@ -74,10 +74,16 @@ export const getInitials = (name = '') => {
   return name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
 };
 
+const API_ORIGIN = (() => {
+  const base = import.meta.env.VITE_API_URL || '';
+  // Strip trailing /api suffix if present — we only want the origin for media URLs
+  return base.replace(/\/api\/?$/, '');
+})();
+
 export const getImageUrl = (url) => {
   if (!url) return null;
   if (url.startsWith('http')) return url;
-  return `http://localhost:5000${url}`;
+  return `${API_ORIGIN}${url}`;
 };
 
 export const getErrorMessage = (error) => {

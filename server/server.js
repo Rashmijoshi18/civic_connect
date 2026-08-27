@@ -63,11 +63,13 @@ app.use((req, res) => {
 // Global error handler (must be last)
 app.use(errorHandler);
 
-// ─── Start Server ─────────────────────────────────────────────────────────────
+// ─── Start Server (skipped on Vercel serverless) ─────────────────────────────
 
-app.listen(PORT, () => {
-  console.log(`✅ CivicConnect API running on http://localhost:${PORT}`);
-  console.log(`📁 Uploads served from /${uploadDir}`);
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`✅ CivicConnect API running on http://localhost:${PORT}`);
+    console.log(`📁 Uploads served from /${uploadDir}`);
+  });
+}
 
 module.exports = app;
