@@ -1,6 +1,18 @@
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
+const API_BASE_URL = (() => {
+  if (import.meta.env.VITE_API_URL) return import.meta.env.VITE_API_URL;
+  // In production without VITE_API_URL set, API calls will fail.
+  if (import.meta.env.PROD) {
+    console.error(
+      '[CivicConnect] VITE_API_URL is not set. ' +
+      'Add it in Vercel → Project Settings → Environment Variables. ' +
+      'Example: https://your-backend.vercel.app/api'
+    );
+  }
+  // Local dev fallback
+  return 'http://localhost:5000/api';
+})();
 
 const api = axios.create({
   baseURL: API_BASE_URL,
