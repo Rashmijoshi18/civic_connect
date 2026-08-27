@@ -1,8 +1,6 @@
-const { PrismaClient } = require('@prisma/client');
+const prisma = require('../utils/prisma');
 const { body, validationResult } = require('express-validator');
 const { calculatePriority } = require('../utils/priority');
-
-const prisma = new PrismaClient();
 
 const solutionValidation = [
   body('title').trim().notEmpty().withMessage('Title is required.').isLength({ max: 200 }),
@@ -30,7 +28,9 @@ const createSolution = async (req, res, next) => {
     }
 
     const { title, description, estimatedCost, expectedImpact } = req.body;
-    const attachmentUrl = req.file ? `/uploads/${req.file.filename}` : null;
+    const attachmentUrl = req.file
+      ? (req.file.path || req.file.secure_url || req.file.url || `/uploads/${req.file.filename}`)
+      : null;
 
     const solution = await prisma.solution.create({
       data: {

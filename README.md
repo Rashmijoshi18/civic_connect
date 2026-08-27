@@ -233,6 +233,19 @@ npm run dev
 
 ---
 
+## 🚀 Deploying to Vercel
+
+CivicConnect is fully configured for seamless deployment to **Vercel** as a unified full-stack application (React frontend + Express & Prisma serverless API).
+
+📖 **Read the full step-by-step instructions in [`DEPLOYMENT_GUIDE.md`](./DEPLOYMENT_GUIDE.md)** for:
+1. Setting up a free cloud PostgreSQL database with Neon.tech
+2. Configuring Cloudinary for image uploads
+3. Deploying frontend and backend together in a single Vercel project
+4. Environment variable configuration
+
+
+---
+
 ## 🔑 Environment Variables
 
 ### `server/.env`

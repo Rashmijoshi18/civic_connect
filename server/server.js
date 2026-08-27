@@ -10,6 +10,9 @@ const solutionsRoutes = require('./routes/solutionsRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const usersRoutes = require('./routes/usersRoutes');
 
+const path = require('path');
+
+const uploadDir = process.env.UPLOAD_DIR || 'uploads';
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -17,15 +20,24 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors({
   origin: function(origin, callback) {
+    // Allow requests with no origin (e.g. mobile apps, curl, serverless internal calls)
+    if (!origin) return callback(null, true);
+
     const allowed = [
       'http://localhost:5173',
       'http://localhost:5174',
       'http://localhost:3000',
       'http://127.0.0.1:5173',
-      process.env.CLIENT_URL,        // set this in Vercel env vars
+      process.env.CLIENT_URL,
     ].filter(Boolean);
 
-    if (!origin || allowed.some(o => origin.startsWith(o)) || origin.endsWith('.vercel.app')) {
+    const isAllowed =
+      allowed.some(o => origin === o || origin.startsWith(o)) ||
+      origin.endsWith('.vercel.app') ||
+      origin.includes('localhost') ||
+      origin.includes('127.0.0.1');
+
+    if (isAllowed) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
@@ -37,8 +49,36 @@ app.use(cors({
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
+// Serve local uploads folder (useful during local development)
+app.use('/uploads', express.static(path.join(__dirname, uploadDir)));
 
 // ─── Routes ───────────────────────────────────────────────────────────────────
+
+// Root API Greeting
+app.get('/', (req, res) => {
+  res.json({
+    success: true,
+    message: 'CivicConnect Backend API is running.',
+    version: '1.0.0',
+    endpoints: {
+      health: '/api/health',
+      auth: '/api/auth',
+      problems: '/api/problems',
+      solutions: '/api/solutions',
+      admin: '/api/admin',
+      users: '/api/users'
+    },
+    timestamp: new Date().toISOString()
+  });
+});
+
+app.get('/api', (req, res) => {
+  res.json({
+    success: true,
+    message: 'CivicConnect API endpoint root',
+    timestamp: new Date().toISOString()
+  });
+});
 
 app.use('/api/auth', authRoutes);
 app.use('/api/problems', problemsRoutes);
@@ -48,12 +88,17 @@ app.use('/api/users', usersRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
-  res.json({ success: true, message: 'CivicConnect API is running.', timestamp: new Date().toISOString() });
+  res.json({
+    success: true,
+    message: 'CivicConnect API is running.',
+    environment: process.env.NODE_ENV || 'development',
+    timestamp: new Date().toISOString()
+  });
 });
 
 // 404 handler
 app.use((req, res) => {
-  res.status(404).json({ success: true, message: 'Route not found.' });
+  res.status(404).json({ success: false, message: 'Route not found.' });
 });
 
 // Global error handler (must be last)
@@ -64,7 +109,6 @@ app.use(errorHandler);
 if (!process.env.VERCEL) {
   app.listen(PORT, () => {
     console.log(`✅ CivicConnect API running on http://localhost:${PORT}`);
-    console.log(`📁 Uploads served from /${uploadDir}`);
   });
 }
 

@@ -1,7 +1,5 @@
-const { PrismaClient } = require('@prisma/client');
+const prisma = require('../utils/prisma');
 const { calculatePriority } = require('../utils/priority');
-
-const prisma = new PrismaClient();
 
 /**
  * GET /api/admin/dashboard

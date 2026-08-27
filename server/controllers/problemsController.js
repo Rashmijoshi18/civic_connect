@@ -1,9 +1,7 @@
-const { PrismaClient } = require('@prisma/client');
+const prisma = require('../utils/prisma');
 const { body, validationResult } = require('express-validator');
 const { calculatePriority } = require('../utils/priority');
 const path = require('path');
-
-const prisma = new PrismaClient();
 
 // ─── Validation ───────────────────────────────────────────────────────────────
 
@@ -42,7 +40,9 @@ const createProblem = async (req, res, next) => {
     }
 
     const { title, description, category, location, city, severity } = req.body;
-    const imageUrl = req.file ? `/uploads/${req.file.filename}` : null;
+    const imageUrl = req.file
+      ? (req.file.path || req.file.secure_url || req.file.url || `/uploads/${req.file.filename}`)
+      : null;
 
     // Calculate initial priority score
     const { score, level } = calculatePriority({ severity, reportCount: 1, proposalCount: 0, affectedUsers: 1 });
@@ -182,7 +182,9 @@ const updateProblem = async (req, res, next) => {
     }
 
     const { title, description, location, city, severity } = req.body;
-    const imageUrl = req.file ? `/uploads/${req.file.filename}` : existing.imageUrl;
+    const imageUrl = req.file
+      ? (req.file.path || req.file.secure_url || req.file.url || `/uploads/${req.file.filename}`)
+      : existing.imageUrl;
 
     // Recalculate priority if severity changed
     const newSeverity = severity || existing.severity;
