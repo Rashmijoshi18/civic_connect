@@ -44,7 +44,7 @@ const LandingPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-dark-950 transition-colors">
+    <div className="min-h-screen bg-dark-950 transition-colors duration-300">
       {/* ── Hero ───────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden pt-20 pb-24 md:pt-28 md:pb-32">
         {/* Subtle background decoration */}
@@ -90,7 +90,7 @@ const LandingPage = () => {
 
             {/* Right Visual (Dashboard Illustration) */}
             <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
-              <div className="relative rounded-2xl bg-dark-900 border border-dark-650 shadow-2xl p-4 md:p-6 overflow-hidden">
+              <div className="relative rounded-2xl bg-dark-900 border border-dark-650 shadow-xl p-4 md:p-6 overflow-hidden">
                 {/* Mock header */}
                 <div className="flex items-center justify-between mb-6 pb-4 border-b border-dark-750">
                   <div className="flex items-center gap-3">
@@ -114,7 +114,7 @@ const LandingPage = () => {
                     { title: 'Streetlight completely out', status: 'Pending', color: 'bg-amber-500', time: '2 hours ago' },
                     { title: 'Water pipe leakage', status: 'Resolved', color: 'bg-emerald-500', time: '1 day ago' },
                   ].map((item, i) => (
-                    <div key={i} className="flex items-center justify-between p-3 rounded-lg bg-dark-850 border border-dark-700">
+                    <div key={i} className="flex items-center justify-between p-3 rounded-lg bg-dark-750 border border-dark-650">
                       <div className="flex items-center gap-3">
                         <div className={`w-2 h-2 rounded-full ${item.color}`} />
                         <div>
@@ -122,7 +122,7 @@ const LandingPage = () => {
                           <div className="text-xs text-dark-300">{item.time}</div>
                         </div>
                       </div>
-                      <div className="text-xs font-medium text-dark-300 bg-dark-900 px-2 py-1 rounded shadow-sm border border-dark-700">
+                      <div className="text-xs font-medium text-dark-300 bg-dark-950 px-2 py-1 rounded shadow-sm border border-dark-650">
                         {item.status}
                       </div>
                     </div>
@@ -139,7 +139,7 @@ const LandingPage = () => {
       </section>
 
       {/* ── Features ───────────────────────────────────────────────────── */}
-      <section className="py-20 bg-dark-900">
+      <section className="py-20 bg-dark-750">
         <div className="container-app">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-3xl font-extrabold text-title mb-4 tracking-tight">Making Communities Better, Together</h2>
@@ -155,7 +155,7 @@ const LandingPage = () => {
               { title: 'Community Collaboration', desc: 'Support and interact with reports submitted by people in your area.', icon: Users, color: 'text-purple-600', bg: 'bg-purple-100 dark:bg-purple-500/20' },
               { title: 'Transparent Governance', desc: 'Help create visibility into civic problems and their resolution.', icon: Shield, color: 'text-emerald-600', bg: 'bg-emerald-100 dark:bg-emerald-500/20' },
             ].map(({ title, desc, icon: Icon, color, bg }, idx) => (
-              <div key={idx} className="bg-dark-850 p-6 rounded-2xl border border-dark-650 shadow-sm hover:shadow-md transition-shadow group">
+              <div key={idx} className="bg-dark-900 p-6 rounded-2xl border border-dark-650 shadow-sm hover:shadow-md transition-shadow group">
                 <div className={`w-12 h-12 rounded-xl ${bg} flex items-center justify-center mb-5 group-hover:scale-105 transition-transform`}>
                   <Icon className={color} size={24} />
                 </div>
@@ -168,7 +168,7 @@ const LandingPage = () => {
       </section>
 
       {/* ── Stats Banner ───────────────────────────────────────────────── */}
-      <section ref={statsRef} className="py-16 bg-navy-700 dark:bg-dark-900 border-y border-navy-600 dark:border-dark-800 relative overflow-hidden">
+      <section ref={statsRef} className="py-16 bg-primary-700 dark:bg-dark-900 border-y border-primary-800 dark:border-dark-800 relative overflow-hidden">
         {/* Background elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute -top-24 -left-24 w-96 h-96 bg-white/20 rounded-full blur-3xl" />
@@ -217,9 +217,9 @@ const LandingPage = () => {
               { title: 'Streetlight Not Working', category: 'Electricity', location: 'Park Street, Sector 4', status: 'Resolved', statusColor: 'bg-emerald-500/20 text-emerald-400', date: 'Oct 10, 2024', icon: Zap },
               { title: 'Garbage Collection Issue', category: 'Waste', location: 'North Residential Area', status: 'Pending', statusColor: 'bg-amber-500/20 text-amber-400', date: 'Oct 14, 2024', icon: AlertTriangle },
             ].map((prob, idx) => (
-              <div key={idx} className="bg-dark-900 border border-dark-700 rounded-2xl p-5 hover:shadow-lg transition-all group flex flex-col">
+              <div key={idx} className="bg-dark-900 border border-dark-650 rounded-2xl p-5 hover:shadow-lg transition-all group flex flex-col">
                 <div className="flex justify-between items-start mb-4">
-                  <div className="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-dark-750 flex items-center justify-center">
                     <prob.icon size={18} className="text-dark-300" />
                   </div>
                   <span className={`px-2.5 py-1 text-xs font-bold rounded-full ${prob.statusColor}`}>
@@ -235,7 +235,7 @@ const LandingPage = () => {
                     <Clock size={14} /> <span>{prob.date}</span>
                   </div>
                 </div>
-                <Link to="/problems" className="w-full py-2.5 px-4 bg-dark-850 text-dark-200 font-semibold text-sm rounded-lg text-center border border-dark-700 hover:bg-dark-800 transition-colors">
+                <Link to="/problems" className="w-full py-2.5 px-4 bg-dark-750 text-dark-200 font-semibold text-sm rounded-lg text-center border border-dark-650 hover:bg-dark-700 transition-colors">
                   View Details
                 </Link>
               </div>
@@ -245,9 +245,9 @@ const LandingPage = () => {
       </section>
 
       {/* ── Final CTA ──────────────────────────────────────────────────── */}
-      <section className="py-20 bg-dark-900">
+      <section className="py-20 bg-dark-750">
         <div className="container-app">
-          <div className="bg-dark-850 rounded-3xl p-8 md:p-14 text-center relative overflow-hidden">
+          <div className="bg-dark-900 rounded-3xl p-8 md:p-14 text-center relative overflow-hidden border border-dark-650">
             {/* Decoration */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary-500/20 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent-cyan/20 rounded-full blur-3xl pointer-events-none" />
@@ -266,7 +266,7 @@ const LandingPage = () => {
       </section>
 
       {/* ── Footer ─────────────────────────────────────────────────────── */}
-      <footer className="bg-dark-950 border-t border-dark-800 py-12">
+      <footer className="bg-dark-750 border-t border-dark-650 py-12">
         <div className="container-app flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
