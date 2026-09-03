@@ -25,7 +25,10 @@ if (process.env.CLOUDINARY_CLOUD_NAME && process.env.CLOUDINARY_API_KEY && proce
   });
 } else {
   // Local disk storage fallback for offline/local development
-  const uploadDir = path.join(__dirname, '..', process.env.UPLOAD_DIR || 'uploads');
+  // Use /tmp for serverless environments like Vercel to avoid read-only file system errors
+  const baseDir = process.env.VERCEL ? '/tmp' : path.join(__dirname, '..');
+  const uploadDir = path.join(baseDir, process.env.UPLOAD_DIR || 'uploads');
+  
   if (!fs.existsSync(uploadDir)) {
     fs.mkdirSync(uploadDir, { recursive: true });
   }
